@@ -6,22 +6,22 @@
 
 The following **required** functionality is completed:
 
-- [ ] User can see the list of recipes
-- [ ] User can search recipes based on specific ingredients
-- [ ] User can search recipes based on name of dish
-- [ ] User can tap a recipe for cooking instructions
+- [ ] User can create an account 
+- [ ] User can login as guest
+- [ ] User can play and stop the otter radio
+- [ ] User can post a message
+- [ ] User can see messages posted by other users
 
 The following **Optional** features are implemented:
 
-- [ ] User can sign up to create a new account using Parse authentication
+- [ ] User can see the schedule of the audio live stream
 - [ ] User can log in and log out of his or her account
-- [ ] The current signed in user is persisted across app restarts
-- [ ] The user can see a video demostrating the cooking proccess
-- [ ] The user can see a list of recomended recipes
-- [ ] The user can save recipes to favorites
-- [ ] The user can share recipes with other users
-- [ ] The user can see a drink recipe section
-- [ ] The user can filter recipes by time, difficulty, and steps
+- [ ] User can listen to the radio when the phone screen is turned off
+- [ ] User can view the live stream of the otter radio
+- [ ] User can request a song
+- [ ] User can sign in as a radio talk host user
+- [ ] Radio talk host users can see the requests from users
+
 
 ## Considerations
 - What is your product pitch?
@@ -38,23 +38,20 @@ The following **Optional** features are implemented:
 - What are your technical concerns?
    * Currently, we do not have any technical concerns.  
 
-## API Information
-- API Endpoints: [Marketplace](https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/{id}/analyzedInstructions) 
+## Audio Information
+- Audio Endpoints: [ottermedia](http://icecast.csumb.edu:8000/ottermedia) 
+- Live stream Endpoint: [ottermedia](http://media.csumb.edu/www/player/encoder.php?en=3&f=1)
 - Model Classes:
-  * Recipe 
+  * AudioStream 
+    - audioUrl
+  * Messages
     - id
-    - steps
-    - name
-    - igredients
-    - equipment 
-    - temperature
-    - image
-  * User
-    - name
-    - id
+    - message
+    - createdAt
+
 
 ## Database Schema 
-<img src="http://i66.tinypic.com/xlxuv6.png">
+<img src="http://i68.tinypic.com/2hrikxw.jpg">
 
 
 ## License
