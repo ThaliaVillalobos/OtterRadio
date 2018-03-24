@@ -1,0 +1,6 @@
+framework module Pods_OtterRadioUITests {
+  umbrella header "Pods-OtterRadioUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
