@@ -13,6 +13,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    
+    var number = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,14 +58,26 @@ class LoginViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func onSignGuess(_ sender: AnyObject) {
+        let newUser = PFUser()
+        let username = "username\(number)"
+        let password = "Pa361ssW485ord9753"
+        
+        newUser.username = username
+        newUser.password = password
+        
+        newUser.signUpInBackground { (success: Bool, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("User Registered successfully")
+                print(username)
+            }
+        }
+        
+        self.number += 1
     }
-    */
+
 
 }
