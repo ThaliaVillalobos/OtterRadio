@@ -25,9 +25,9 @@ The following **Optional** features are implemented:
 
 ## Considerations
 - What is your product pitch?
-   * Have you even been so hungry but once you look in your fridge you can't think of anything to make. FeedMe will take in the ingredients you currently have and searches for recipes with those specfic ingredients. 
+   * Student's at CSUMB, Califorina State University of Monterey Bay, has to use a computer to access the radio station and must call in to request a song. With Otter Radio users can get access the radio content from their device and request a song or shoutout with a click of a button.  
 - Who are the key stakeholders for this app?
-   * Our app is will help those who have a strict budget to follow who cannot waste any money. 
+   * Our app is will give a more efficient way to listen, view, and request songs for CSUMB Radio station.  
 - What are the core flows? 
     * The key functionality of our app is going to be searching, filtering, and displaying recipes.  For now, the user will be able to see   two screens. The first screen will display a list of recipes along with a search bar on top. As for the second screen, it will be       displayed once the user has picked a recipe from the first screen.  Also, the second screen will have a detail view showing the steps   needed to complete the meal.
 
