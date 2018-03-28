@@ -10,10 +10,18 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var trayView: UIView!
+    var trayOriginalCenter: CGPoint!
+    var trayDownOffset: CGFloat!
+    var trayUp: CGPoint!
+    var trayDown: CGPoint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        trayDownOffset = 160
+        trayUp = trayView.center
+        trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +30,26 @@ class HomeViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func didPanTray(_ sender: AnyObject) {
+        let translation = sender.translation(in: view)
+        let velocity = sender.velocity(in: view)
+        
+        if sender.state == .began {
+            trayOriginalCenter = trayView.center
+        } else if sender.state == .changed {
+            trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
+        } else if sender.state == .ended {
+            if velocity.y > 0 {
+                UIView.animate(withDuration: 0.3) {
+                    self.trayView.center = self.trayDown
+                }
+            } else {
+                UIView.animate(withDuration: 0.3) {
+                    self.trayView.center = self.trayUp                 
+                }
+            }
+        }
+    
     }
-    */
-
+  
 }

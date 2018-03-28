@@ -72,7 +72,7 @@
                     <connections>
                         <outlet property="passwordField" destination="4cG-NP-goR" id="3Is-vB-tST"/>
                         <outlet property="usernameField" destination="81i-mQ-kP0" id="4MT-LC-IIX"/>
-                        <segue destination="59a-Eg-x9q" kind="presentation" identifier="loginSegue" id="qP0-77-3GR"/>
+                        <segue destination="XPb-dY-Fzr" kind="presentation" identifier="loginSegue" id="qP0-77-3GR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -101,22 +101,107 @@
                                 <state key="normal" backgroundImage="playbutt"/>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FaI-HZ-u0o">
-                                <rect key="frame" x="0.0" y="355" width="375" height="312"/>
+                                <rect key="frame" x="0.0" y="336" width="375" height="331"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="NFN-VG-TdG">
+                                        <rect key="frame" x="178" y="8" width="19" height="20"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tyep a Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m73-Lc-fXb">
+                                        <rect key="frame" x="8" y="30" width="279" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPG-n4-mjR">
+                                        <rect key="frame" x="309" y="30" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Send"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nug-T6-8Hb" appends="YES" id="jSg-Hk-yOT"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" image="headphones (4)" selectedImage="headphones (4)" id="VlI-29-ocK"/>
+                    <connections>
+                        <outlet property="trayView" destination="FaI-HZ-u0o" id="9Vg-31-7ue"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRj-db-x8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="nug-T6-8Hb">
+                    <connections>
+                        <action selector="didPanTray:" destination="59a-Eg-x9q" id="6cT-gd-vgX"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="792.79999999999995" y="123.68815592203899"/>
+            <point key="canvasLocation" x="302" y="883"/>
+        </scene>
+        <!--Live View Controller-->
+        <scene sceneID="s3H-8r-Hsy">
+            <objects>
+                <viewController id="Ddr-5R-r4E" customClass="LiveViewController" customModule="OtterRadio" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J5U-MQ-Pxr"/>
+                        <viewControllerLayoutGuide type="bottom" id="XCW-vZ-0TG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pE9-Pu-Y7L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-VS-X7N">
+                                <rect key="frame" x="16" y="28" width="343" height="333"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Live" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fz7-eG-zuw">
+                                <rect key="frame" x="139" y="481" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="video-camera" selectedImage="video-camera" id="ae8-Db-ryv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WoT-Ql-aqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="883"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="WAu-DY-TcK">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XPb-dY-Fzr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ilz-3w-dN7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="59a-Eg-x9q" kind="relationship" relationship="viewControllers" id="Z3l-RU-dIJ"/>
+                        <segue destination="Ddr-5R-r4E" kind="relationship" relationship="viewControllers" id="xiB-HY-TA8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uFd-SC-ylh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="124"/>
         </scene>
     </scenes>
     <resources>
+        <image name="down_arrow" width="20" height="14"/>
+        <image name="headphones (4)" width="32" height="32"/>
         <image name="homeimage" width="750" height="1334"/>
         <image name="otterRadioLogo" width="685" height="505"/>
         <image name="playbutt" width="2400" height="2400"/>
+        <image name="video-camera" width="32" height="32"/>
     </resources>
 </document>
