@@ -38,7 +38,7 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
         self.view.layer.addSublayer(playerLayer)
 
-        trayDownOffset = 160
+        trayDownOffset = 285
         trayUp = trayView.center
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
         
@@ -103,6 +103,7 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         
         let chatMessage = PFObject(className: "Message")
         chatMessage["text"] = chatMessageField.text ?? ""
+        chatMessage["user"] = PFUser.current()
         
         chatMessage.saveInBackground { (success, error) in
             if success {

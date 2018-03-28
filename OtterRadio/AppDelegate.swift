@@ -18,6 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        if let currentUser = PFUser.current() {
+            print("Welcome back \(currentUser.username!) 😀")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = storyboard.instantiateViewController(withIdentifier: "loginSegue")
+            window?.rootViewController = homeViewController
+        }
+        
+        
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "csumbradio"
@@ -25,6 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://otterradio.herokuapp.com/parse"
             })
         )
+        
+   
+        
         return true
     }
 
