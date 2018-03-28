@@ -10,10 +10,11 @@ import UIKit
 import AVFoundation
 import Parse
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var trayView: UIView!
     @IBOutlet weak var chatMessageField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
 
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat!
@@ -23,6 +24,8 @@ class HomeViewController: UIViewController {
     var player:AVPlayer?
     var playerItem:AVPlayerItem?
     let radioURL = "http://icecast.csumb.edu:8000/ottermedia"
+    
+    var messages: [PFObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +41,23 @@ class HomeViewController: UIViewController {
         trayDownOffset = 160
         trayUp = trayView.center
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 50
+        
+        fetchMessages()
+        tableView.dataSource = self
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(HomeViewController.didPullToRefresh(_:)), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -99,5 +114,52 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
+        
+        let mess = messages[indexPath.row]
+        
+        if let user = mess["user"] as? PFUser {
+            // User found! update username label with username
+            cell.usernameLabel.text = user.username
+        } else {
+            // No user found, set default username
+            cell.usernameLabel.text = "🤖"
+        }
+        
+        cell.messageLabel.text = mess["text"] as? String
+        
+        return cell
+    }
+    
+    //Refresh message
+    func didPullToRefresh(_ refreshControl: UIRefreshControl) {
+        fetchMessages()
+        refreshControl.endRefreshing()
+    }
+    
+    //Fetching messages
+    func fetchMessages() {
+        let query = PFQuery(className: "Message")
+        query.order(byDescending: "_created_at")
+        query.includeKey("user")
+        
+        
+        query.findObjectsInBackground { ( messages: [PFObject]?, error: Error?) in
+            if let mess = messages {
+                self.messages = mess
+                
+                self.tableView.reloadData()
+            } else {
+                print("Error receiving the messages")
+            }
+        }
+        
+    }
   
 }

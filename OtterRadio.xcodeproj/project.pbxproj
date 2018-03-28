@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8737B954206C435B000D3CC4 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8737B953206C435B000D3CC4 /* ChatCell.swift */; };
 		8765DAE3206B35570017C4DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765DAE2206B35570017C4DE /* HomeViewController.swift */; };
 		8765DAE5206B458F0017C4DE /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765DAE4206B458F0017C4DE /* LiveViewController.swift */; };
 		89AD1211206B54F400AD1701 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AD1210206B54F400AD1701 /* AVFoundation.framework */; };
@@ -44,6 +45,7 @@
 		1D1AAA6274EB8C78C9269A1D /* Pods_OtterRadioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtterRadioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EECC123CFF859C5E220759E /* Pods-OtterRadioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioUITests/Pods-OtterRadioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4726D8E233597520E3710D66 /* Pods-OtterRadioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioTests/Pods-OtterRadioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8737B953206C435B000D3CC4 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		8765DAE2206B35570017C4DE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8765DAE4206B458F0017C4DE /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		89AD1210206B54F400AD1701 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8737B952206C42CF000D3CC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8737B953206C435B000D3CC4 /* ChatCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		882DE1BAEE242AB22504CB42 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 		F6C7EE282064FE6700825764 /* OtterRadio */ = {
 			isa = PBXGroup;
 			children = (
+				8737B952206C42CF000D3CC4 /* View */,
 				F600F21120670D540068B6F5 /* ViewController */,
 				F6C7EE292064FE6700825764 /* AppDelegate.swift */,
 				F6C7EE2B2064FE6700825764 /* ViewController.swift */,
@@ -486,6 +497,7 @@
 				F6C7EE2A2064FE6700825764 /* AppDelegate.swift in Sources */,
 				8765DAE3206B35570017C4DE /* HomeViewController.swift in Sources */,
 				8765DAE5206B458F0017C4DE /* LiveViewController.swift in Sources */,
+				8737B954206C435B000D3CC4 /* ChatCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
