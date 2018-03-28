@@ -8,21 +8,21 @@
 
 import UIKit
 import AVFoundation
+import Parse
 
 class HomeViewController: UIViewController {
-
-    var player:AVPlayer?
-    var playerItem:AVPlayerItem?
-    let radioURL = "http://icecast.csumb.edu:8000/ottermedia"
-
-    
     @IBOutlet weak var playButton: UIButton!
-    
     @IBOutlet weak var trayView: UIView!
+    @IBOutlet weak var chatMessageField: UITextField!
+
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat!
     var trayUp: CGPoint!
     var trayDown: CGPoint!
+    
+    var player:AVPlayer?
+    var playerItem:AVPlayerItem?
+    let radioURL = "http://icecast.csumb.edu:8000/ottermedia"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +45,8 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //Play Button
     @IBAction func didTapPlayButton(_ sender: UIButton) {
         if player?.rate == 0
         {
@@ -58,6 +60,7 @@ class HomeViewController: UIViewController {
         }
     }
 
+    //Tary
     @IBAction func didPanTray(_ sender: AnyObject) {
         let translation = sender.translation(in: view)
         let velocity = sender.velocity(in: view)
@@ -77,7 +80,24 @@ class HomeViewController: UIViewController {
                 }
             }
         }
-    
     }
+    
+    //Send Button
+    @IBAction func sendButton(_ sender: AnyObject) {
+        print("Hell0")
+        
+        let chatMessage = PFObject(className: "Message")
+        chatMessage["text"] = chatMessageField.text ?? ""
+        
+        chatMessage.saveInBackground { (success, error) in
+            if success {
+                print("The message was saved!")
+                self.chatMessageField.text = ""
+            } else if let error = error {
+                print("Problem saving message: \(error.localizedDescription)")
+            }
+        }
+    }
+    
   
 }
