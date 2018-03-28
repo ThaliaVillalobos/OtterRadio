@@ -25,14 +25,13 @@ The following **Optional** features are implemented:
 
 ## Considerations
 - What is your product pitch?
-   * Student's at CSUMB, Califorina State University of Monterey Bay, has to use a computer to access the radio station and must call in to request a song. With Otter Radio users can get access the radio content from their device and request a song or shoutout with a click of a button.  
+   * Student's at CSUMB, Califorina State University of Monterey Bay, has to use a computer to access the radio station and must call in to request a song. With Otter Radio users can get access the radio content from their device and live chat with a click of a button.  
 - Who are the key stakeholders for this app?
-   * Our app is will give listeners a more efficient way to tune in, view, and request songs for CSUMB Radio station.  
+   * Our app is will give listeners a more efficient way to tune in, view, and live chat for CSUMB Radio station.  
 - What are the core flows? 
-    * The key functionality of our app is going to be searching, filtering, and displaying recipes.  For now, the user will be able to see   two screens. The first screen will display a list of recipes along with a search bar on top. As for the second screen, it will be       displayed once the user has picked a recipe from the first screen.  Also, the second screen will have a detail view showing the steps   needed to complete the meal.
-
+    * The key functionality of our app is going to be able to listen to CSUMB radio station and watch a live feed of the radio station wherever users go.Also users will be able to live chat with others when listening to CSUMB radio station. 
 - What will your final demo look like? 
-    * For first time users, they will take a small survey asking them what types of food do they like. Once they complete the survey, users   will be shown a list of recommended foods based on the survey they took. On the screen listing recipes, users will have the ability to   search through the different recipes. Finally, the user will have the ability to see a detail view of the recipe selected; show the     necessary steps needed to complete the meal.
+    * Users can choose to either sign in or to sign in as a guest and then users start listening to CSUMB radio station. There will be two tabs one for radio and the other tab is for the live feed.   
 - What mobile features do you leverage?
    * The application feature that we leverage is searchability.  
 - What are your technical concerns?
