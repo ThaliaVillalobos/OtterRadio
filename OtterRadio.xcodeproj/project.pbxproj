@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8765DAE3206B35570017C4DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765DAE2206B35570017C4DE /* HomeViewController.swift */; };
 		B8D638ACFFE7D89B4A1E6166 /* Pods_OtterRadioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942072CCE36CAAFCC0ADD85C /* Pods_OtterRadioUITests.framework */; };
 		E92D84A652B5EF7B29158AFB /* Pods_OtterRadio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18807623BDEBAF81B3B9907 /* Pods_OtterRadio.framework */; };
 		EFA2EEC416484B4CD2DE7577 /* Pods_OtterRadioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1AAA6274EB8C78C9269A1D /* Pods_OtterRadioTests.framework */; };
@@ -41,6 +42,7 @@
 		1D1AAA6274EB8C78C9269A1D /* Pods_OtterRadioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtterRadioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EECC123CFF859C5E220759E /* Pods-OtterRadioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioUITests/Pods-OtterRadioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4726D8E233597520E3710D66 /* Pods-OtterRadioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioTests/Pods-OtterRadioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8765DAE2206B35570017C4DE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		942072CCE36CAAFCC0ADD85C /* Pods_OtterRadioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtterRadioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18807623BDEBAF81B3B9907 /* Pods_OtterRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtterRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CA71EAC97394CE5B378B02 /* Pods-OtterRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadio.release.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadio/Pods-OtterRadio.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				F600F21220670D870068B6F5 /* LoginViewController.swift */,
+				8765DAE2206B35570017C4DE /* HomeViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				F600F21320670D870068B6F5 /* LoginViewController.swift in Sources */,
 				F6C7EE2C2064FE6700825764 /* ViewController.swift in Sources */,
 				F6C7EE2A2064FE6700825764 /* AppDelegate.swift in Sources */,
+				8765DAE3206B35570017C4DE /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
