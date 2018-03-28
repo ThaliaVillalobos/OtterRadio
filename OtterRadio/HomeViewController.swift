@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeViewController: UIViewController {
 
+    var player:AVPlayer?
+    var playerItem:AVPlayerItem?
+    let radioURL = "http://icecast.csumb.edu:8000/ottermedia"
+
+    
+    @IBOutlet weak var playButton: UIButton!
+    
     @IBOutlet weak var trayView: UIView!
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat!
@@ -18,6 +26,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let url = URL(string: radioURL)
+        let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
+        player = AVPlayer(playerItem: playerItem)
+        
+        let playerLayer=AVPlayerLayer(player: player!)
+        playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
+        self.view.layer.addSublayer(playerLayer)
 
         trayDownOffset = 160
         trayUp = trayView.center
@@ -29,6 +45,18 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTapPlayButton(_ sender: UIButton) {
+        if player?.rate == 0
+        {
+            player!.play()
+            //playButton!.setImage(UIImage(named: "player_control_pause_50px.png"), forState: UIControlState.Normal)
+            playButton!.setTitle("Pause", for: UIControlState.normal)
+        } else {
+            player!.pause()
+            //playButton!.setImage(UIImage(named: "player_control_play_50px.png"), forState: UIControlState.Normal)
+            playButton!.setTitle("Play", for: UIControlState.normal)
+        }
+    }
 
     @IBAction func didPanTray(_ sender: AnyObject) {
         let translation = sender.translation(in: view)
