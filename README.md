@@ -31,7 +31,7 @@ The following **Optional** features are implemented:
 - What are the core flows? 
     * The key functionality of our app is going to be able to listen to CSUMB radio station and watch a live feed of the radio station wherever users go.Also users will be able to live chat with others when listening to CSUMB radio station. 
 - What will your final demo look like? 
-    * Users can choose to either sign in or to sign in as a guest and then users start listening to CSUMB radio station. There will be two tabs one for radio and the other tab is for the live feed.   
+    * Users can choose to either sign in or to sign in as a guest and then users can start listening to CSUMB radio station. There will be two tabs one for radio and the other tab is for the live feed.   
 - What mobile features do you leverage?
    * The application feature that we leverage is searchability.  
 - What are your technical concerns?
