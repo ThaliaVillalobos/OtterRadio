@@ -6,18 +6,18 @@
 
 The following **required** functionality is completed:
 
-- [ ] User can create an account 
+- [X] User can create an account 
 - [ ] User can login as guest
-- [ ] User can play and stop the otter radio
-- [ ] User can post a message
-- [ ] User can see messages posted by other users
+- [X] User can play and stop the otter radio
+- [X] User can post a message
+- [X] User can see messages posted by other users
 
 The following **Optional** features are implemented:
 
 - [ ] User can see the schedule of the audio live stream
 - [ ] User can log in and log out of his or her account
 - [ ] User can listen to the radio when the phone screen is turned off
-- [ ] User can view the live stream of the otter radio
+- [X] User can view the live stream of the otter radio
 - [ ] User can request a song
 - [ ] User can sign in as a radio talk host user
 - [ ] Radio talk host users can see the requests from users
