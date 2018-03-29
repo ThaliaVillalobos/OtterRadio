@@ -9,11 +9,36 @@
 import UIKit
 
 class LiveViewController: UIViewController {
-
+    
+    @IBOutlet weak var liveFeedWebView: UIWebView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let liveFeedURL = URL(string: "http://media.csumb.edu/www/player/encoder.php?en=3&f=1")
+        if let unwrapURL = liveFeedURL{
+            
+            let request = URLRequest(url: unwrapURL)
+            let session = URLSession.shared
+            
+            let task = session.dataTask(with: unwrapURL, completionHandler: { (data, response, error) in
+                
+                if let data = data{
+                    //Update the Web View to the main thread
+                    DispatchQueue.main.async {
+                         self.liveFeedWebView.loadRequest(request)
+                    }
+                }
+                else{
+                    
+                    print("Error loading Live Stream \(error)")
+                }
+            })
+            
+           task.resume()
+        }
     }
 
     override func didReceiveMemoryWarning() {
