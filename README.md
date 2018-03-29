@@ -1,13 +1,13 @@
 # OtterRadio
 
-**OtterRadio** is a radio station that is boadcast from the California State University, Monterey Bay.
+**OtterRadio** is a radio station that is broadcasted from the California State University, Monterey Bay.
 
 ## User Stories
 
 The following **required** functionality is completed:
 
 - [X] User can create an account 
-- [ ] User can login as guest
+- [x] User can login as guest
 - [X] User can play and stop the otter radio
 - [X] User can post a message
 - [X] User can see messages posted by other users
