@@ -20,6 +20,7 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     var trayDownOffset: CGFloat!
     var trayUp: CGPoint!
     var trayDown: CGPoint!
+    var username: String!
     
     var player:AVPlayer?
     var playerItem:AVPlayerItem?
@@ -37,7 +38,11 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         let playerLayer=AVPlayerLayer(player: player!)
         playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
         self.view.layer.addSublayer(playerLayer)
-
+        
+        if checkName() == true{
+            trayView.isHidden = true
+        }
+            
         trayDownOffset = 285
         trayUp = trayView.center
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
@@ -60,6 +65,21 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         super.didReceiveMemoryWarning()
     }
     
+    //Checking Username 
+    func checkName() -> Bool {
+        username = PFUser.current()?.username
+        //print(username)
+        
+        if username.characters.count >= 8{
+            let checkName = username.substring(to: username.index(username.startIndex, offsetBy: 8))
+            //print(checkName)
+            
+            if checkName == "username"{
+                return true
+            }
+        }
+        return false
+    }
     
     //Play Button
     @IBAction func didTapPlayButton(_ sender: UIButton) {
@@ -98,8 +118,6 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     
     //Send Button
     @IBAction func sendButton(_ sender: AnyObject) {
-        print("Hell0")
-        
         let chatMessage = PFObject(className: "Message")
         chatMessage["text"] = chatMessageField.text ?? ""
         chatMessage["user"] = PFUser.current()
@@ -159,7 +177,6 @@ class HomeViewController: UIViewController, UITableViewDataSource {
                 print("Error receiving the messages")
             }
         }
-        
     }
   
 }
