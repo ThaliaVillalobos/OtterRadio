@@ -25,7 +25,7 @@ class LiveViewController: UIViewController {
             
             let task = session.dataTask(with: unwrapURL, completionHandler: { (data, response, error) in
                 
-                if let data = data{
+                if data != nil{
                     //Update the Web View to the main thread
                     DispatchQueue.main.async {
                          self.liveFeedWebView.loadRequest(request)
@@ -33,7 +33,7 @@ class LiveViewController: UIViewController {
                 }
                 else{
                     
-                    print("Error loading Live Stream \(error)")
+                    print("Error loading Live Stream \(String(describing: error))")
                 }
             })
             

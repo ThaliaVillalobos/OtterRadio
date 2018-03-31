@@ -41,8 +41,11 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         
         if checkName() == true{
             trayView.isHidden = true
+            var viewControllers = tabBarController?.viewControllers
+            viewControllers?.remove(at: 2)
+            tabBarController?.viewControllers = viewControllers
         }
-            
+        
         trayDownOffset = 285
         trayUp = trayView.center
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)

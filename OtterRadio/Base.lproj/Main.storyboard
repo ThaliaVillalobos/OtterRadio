@@ -186,7 +186,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="301.60000000000002" y="882.90854572713647"/>
+            <point key="canvasLocation" x="118" y="883"/>
         </scene>
         <!--Live View Controller-->
         <scene sceneID="s3H-8r-Hsy">
@@ -215,7 +215,80 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoT-Ql-aqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1724" y="882.90854572713647"/>
+            <point key="canvasLocation" x="1001" y="883"/>
+        </scene>
+        <!--Request View Controller-->
+        <scene sceneID="z1z-UI-ouL">
+            <objects>
+                <viewController id="U9s-Xs-iEQ" customClass="RequestViewController" customModule="OtterRadio" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8O2-ge-PLq"/>
+                        <viewControllerLayoutGuide type="bottom" id="xLX-fJ-lO2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PX6-Sc-ogL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UA1-x3-Uxc">
+                                <rect key="frame" x="46" y="203" width="283" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fQx-Wl-0Rx">
+                                <rect key="frame" x="46" y="303" width="283" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="I1p-fu-Xv8">
+                                <rect key="frame" x="46" y="412" width="283" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mw2-85-zpC">
+                                <rect key="frame" x="46" y="174" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00Y-8o-hve">
+                                <rect key="frame" x="46" y="274" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shout-out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLM-wb-scQ">
+                                <rect key="frame" x="46" y="383" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="otterRadioLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5va-SH-JBJ">
+                                <rect key="frame" x="67" y="28" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZW5-TB-0Mv">
+                                <rect key="frame" x="144" y="522" width="86" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="music-player" selectedImage="music-player" id="An8-3w-mQm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HAj-Nu-6m3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1885.5999999999999" y="882.90854572713647"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="WAu-DY-TcK">
@@ -230,6 +303,7 @@
                     <connections>
                         <segue destination="59a-Eg-x9q" kind="relationship" relationship="viewControllers" id="Z3l-RU-dIJ"/>
                         <segue destination="Ddr-5R-r4E" kind="relationship" relationship="viewControllers" id="xiB-HY-TA8"/>
+                        <segue destination="U9s-Xs-iEQ" kind="relationship" relationship="viewControllers" id="4Dk-0u-1Bm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFd-SC-ylh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,6 +315,7 @@
         <image name="down_arrow" width="20" height="14"/>
         <image name="headphones (4)" width="32" height="32"/>
         <image name="homeimage" width="750" height="1334"/>
+        <image name="music-player" width="32" height="32"/>
         <image name="otterRadioLogo" width="685" height="505"/>
         <image name="play" width="136" height="137"/>
         <image name="video-camera" width="32" height="32"/>
