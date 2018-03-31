@@ -61,7 +61,7 @@
                                 <rect key="frame" x="130" y="415" width="113" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="Sign in as Guess"/>
+                                <state key="normal" title="Sign in as Guest"/>
                                 <connections>
                                     <action selector="onSignGuess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4u2-Sg-Kf3"/>
                                 </connections>
@@ -330,6 +330,6 @@
         <image name="video-camera" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yta-0E-GBP"/>
+        <segue reference="qP0-77-3GR"/>
     </inferredMetricsTieBreakers>
 </document>

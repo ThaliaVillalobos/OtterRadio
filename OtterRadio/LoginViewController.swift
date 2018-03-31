@@ -55,28 +55,33 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print("User Registered successfully")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)            }
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }
         }
     }
 
     
     @IBAction func onSignGuess(_ sender: AnyObject) {
-        let newUser = PFUser()
-        let password = "Pa361ssW485ord9753"
-        self.username = "username\(UserDefaults.standard.integer(forKey: "hightestNumber"))"
-        
-        newUser.username = username
-        newUser.password = password
-        
-        newUser.signUpInBackground { (success: Bool, error: Error?) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                print("User Registered successfully")
-                print(self.username)
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        if PFUser.current()?.username != nil{
+            print(PFUser.current()?.username)
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        }else{
+            let newUser = PFUser()
+            newUser.username = username
+            newUser.signUpInBackground { (success: Bool, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    print("User Registered successfully")
+                    print(self.username)
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                }
             }
         }
+        
+        //let password = "Pa361ssW485ord9753"
+        
+        //newUser.password = password
         
         self.number += 1
         UserDefaults.standard.set(self.number, forKey:"hightestNumber")
