@@ -59,16 +59,13 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    
+
     
     //Logout Button
     @IBAction func didTapLogOutButton(_ sender: Any) {
+        otterRadio.stopRadio()
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
-
-    
-    
     
     //Play Button
     @IBAction func didTapPlayButton(_ sender: UIButton) {
