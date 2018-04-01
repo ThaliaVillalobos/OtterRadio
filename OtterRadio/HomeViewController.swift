@@ -26,7 +26,7 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.becomeFirstResponder()
         otterRadio = RadioAPI()
         self.view.layer.addSublayer(otterRadio.getAVPlayerLayer())
         

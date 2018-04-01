@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import MediaPlayer
 
 class RadioAPI {
     
@@ -25,18 +26,36 @@ class RadioAPI {
         playerLayer=AVPlayerLayer(player: player!)
         playerLayer.frame=CGRect(x:0, y:0, width:50, height:50)
         isPlaying = false
+        
+        setupAVAudioSession()
 
+    }
+    
+    private func setupAVAudioSession() {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            print("AVAudioSession Category Playback OK")
-            do {
-                try AVAudioSession.sharedInstance().setActive(true)
-                print("AVAudioSession is Active")
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
-        } catch let error as NSError {
-            print(error.localizedDescription)
+            try AVAudioSession.sharedInstance().setActive(true)
+            debugPrint("AVAudioSession is Active and Category Playback is set")
+            UIApplication.shared.beginReceivingRemoteControlEvents()
+            setupCommandCenter()
+        } catch {
+            debugPrint("Error: \(error)")
+        }
+    }
+    
+    private func setupCommandCenter() {
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: "Otter Radio"]
+        
+        let commandCenter = MPRemoteCommandCenter.shared()
+        commandCenter.playCommand.isEnabled = true
+        commandCenter.pauseCommand.isEnabled = true
+        commandCenter.playCommand.addTarget { [weak self] (event) -> MPRemoteCommandHandlerStatus in
+            self?.playRadio()
+            return .success
+        }
+        commandCenter.pauseCommand.addTarget { [weak self] (event) -> MPRemoteCommandHandlerStatus in
+            self?.stopRadio()
+            return .success
         }
     }
     
