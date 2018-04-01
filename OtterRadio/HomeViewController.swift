@@ -30,7 +30,8 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         otterRadio = RadioAPI()
         self.view.layer.addSublayer(otterRadio.getAVPlayerLayer())
         
-        if checkName() == true{
+        
+        if PFUser.current() == nil{
             trayView.isHidden = true
             var viewControllers = tabBarController?.viewControllers
             viewControllers?.remove(at: 2)
@@ -59,21 +60,15 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         super.didReceiveMemoryWarning()
     }
     
-    //Checking Username 
-    func checkName() -> Bool {
-        username = PFUser.current()?.username
-        //print(username)
-        
-        if username.characters.count >= 8{
-            let checkName = username.substring(to: username.index(username.startIndex, offsetBy: 8))
-            //print(checkName)
-            
-            if checkName == "username"{
-                return true
-            }
-        }
-        return false
+    
+    
+    //Logout Button
+    @IBAction func didTapLogOutButton(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
+
+    
+    
     
     //Play Button
     @IBAction func didTapPlayButton(_ sender: UIButton) {

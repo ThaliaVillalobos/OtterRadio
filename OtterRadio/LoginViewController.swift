@@ -13,16 +13,9 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-    var number = 1
-    var username:String!
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let lastNumber = UserDefaults.standard.value(forKey: "hightestNumber"){
-            self.number = lastNumber as! Int
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,30 +54,9 @@ class LoginViewController: UIViewController {
     }
 
     
-    @IBAction func onSignGuess(_ sender: AnyObject) {
-        if PFUser.current()?.username != nil{
-            print(PFUser.current()?.username)
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-        }else{
-            let newUser = PFUser()
-            newUser.username = username
-            newUser.signUpInBackground { (success: Bool, error: Error?) in
-                if let error = error {
-                    print(error.localizedDescription)
-                } else {
-                    print("User Registered successfully")
-                    print(self.username)
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                }
-            }
-        }
-        
-        //let password = "Pa361ssW485ord9753"
-        
-        //newUser.password = password
-        
-        self.number += 1
-        UserDefaults.standard.set(self.number, forKey:"hightestNumber")
+    @IBAction func onSignGuest(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+
     }
 
 
