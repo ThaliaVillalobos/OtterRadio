@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="OtterRadio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" id="BYZ-38-t0r" customClass="LoginViewController" customModule="OtterRadio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -63,7 +63,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Sign in as Guest"/>
                                 <connections>
-                                    <action selector="onSignGuess:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4u2-Sg-Kf3"/>
+                                    <action selector="onSignGuest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mBg-Y6-zKq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -168,6 +168,14 @@
                                     <action selector="didTapPlayButton:" destination="59a-Eg-x9q" eventType="touchUpInside" id="R1W-J0-Yev"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaL-EY-452">
+                                <rect key="frame" x="16" y="20" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogOutButton:" destination="59a-Eg-x9q" eventType="touchUpInside" id="RCu-VQ-TIH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -186,7 +194,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="118" y="883"/>
+            <point key="canvasLocation" x="17" y="869"/>
         </scene>
         <!--Live View Controller-->
         <scene sceneID="s3H-8r-Hsy">
@@ -302,7 +310,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="WAu-DY-TcK">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XPb-dY-Fzr" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="homePage" automaticallyAdjustsScrollViewInsets="NO" id="XPb-dY-Fzr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ilz-3w-dN7">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
