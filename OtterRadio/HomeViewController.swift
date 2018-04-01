@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
 import Parse
 
 class HomeViewController: UIViewController, UITableViewDataSource {
@@ -21,23 +20,15 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     var trayUp: CGPoint!
     var trayDown: CGPoint!
     var username: String!
-    
-    var player:AVPlayer?
-    var playerItem:AVPlayerItem?
-    let radioURL = "http://icecast.csumb.edu:8000/ottermedia"
+    var otterRadio: RadioAPI!
     
     var messages: [PFObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: radioURL)
-        let playerItem:AVPlayerItem = AVPlayerItem(url: url!)
-        player = AVPlayer(playerItem: playerItem)
-        
-        let playerLayer=AVPlayerLayer(player: player!)
-        playerLayer.frame=CGRect(x:0, y:0, width:10, height:50)
-        self.view.layer.addSublayer(playerLayer)
+        otterRadio = RadioAPI()
+        self.view.layer.addSublayer(otterRadio.getAVPlayerLayer())
         
         if checkName() == true{
             trayView.isHidden = true
@@ -86,14 +77,13 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     
     //Play Button
     @IBAction func didTapPlayButton(_ sender: UIButton) {
-        if player?.rate == 0
+        if !(otterRadio.isPlaying!)
         {
-            player!.play()
+            otterRadio.playRadio()
             playButton.setImage(UIImage(named: "pause.png"), for: UIControlState.normal)
         } else {
-            player!.pause()
+            otterRadio.stopRadio()
             playButton.setImage(UIImage(named: "play.png"), for: UIControlState.normal)
-            //playButton!.setTitle("Play", for: UIControlState.normal)
         }
     }
 

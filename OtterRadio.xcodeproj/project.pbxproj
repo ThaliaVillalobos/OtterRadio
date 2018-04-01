@@ -289,6 +289,11 @@
 					F6C7EE252064FE6700825764 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					F6C7EE392064FE6800825764 = {
 						CreatedOnToolsVersion = 8.3.3;
