@@ -288,6 +288,7 @@
 				TargetAttributes = {
 					F6C7EE252064FE6700825764 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9RR37ASP3A;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -671,6 +672,7 @@
 			baseConfigurationReference = F82A78945EE2630CF620467E /* Pods-OtterRadio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9RR37ASP3A;
 				INFOPLIST_FILE = OtterRadio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.thalia.OtterRadio;
@@ -684,6 +686,7 @@
 			baseConfigurationReference = B3CA71EAC97394CE5B378B02 /* Pods-OtterRadio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9RR37ASP3A;
 				INFOPLIST_FILE = OtterRadio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.csumb.thalia.OtterRadio;
