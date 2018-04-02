@@ -337,11 +337,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="57" id="TJ4-Rg-XGC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="57" id="TJ4-Rg-XGC" customClass="UserCell" customModule="OtterRadio" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJ4-Rg-XGC" id="JYU-MQ-61x">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhA-gp-inP">
@@ -353,6 +353,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="userNameLabel" destination="YhA-gp-inP" id="cUz-Zd-rzg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -368,6 +371,7 @@
                     </view>
                     <connections>
                         <outlet property="searchDisplayController" destination="Kwt-az-142" id="dKy-Cm-Zhd"/>
+                        <outlet property="tableView" destination="bSb-g3-9Ls" id="M27-pY-3S9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AS8-Mr-Yqa" userLabel="First Responder" sceneMemberID="firstResponder"/>
