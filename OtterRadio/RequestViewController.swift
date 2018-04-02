@@ -15,6 +15,7 @@ class RequestViewController: UIViewController {
     @IBOutlet weak var songTitle: UITextField!
     @IBOutlet weak var shoutOut: UITextView!
     
+    var phoneNumber  = "8315823888"
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -47,5 +48,16 @@ class RequestViewController: UIViewController {
         performSegue(withIdentifier: "backHome", sender: nil)
         
     }
+    
+    
+    @IBAction func makeCall(_ sender: UIButton) {
+        
+        if let url = URL(string: "tel://\(phoneNumber)"){
+            
+            UIApplication.shared.openURL(url)
+        }
+        
+    }
+    
 
 }
