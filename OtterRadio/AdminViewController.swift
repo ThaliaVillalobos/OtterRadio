@@ -18,17 +18,16 @@ class AdminViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchName()
         tableView.dataSource = self
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,15 +35,14 @@ class AdminViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
         
         //Todo: dispaly username
-//        let username = users[indexPath.row]
-//        
-//        cell.userNameLabel.text = use
+        let user = users[indexPath.row]
+        cell.userNameLabel.text = user["username"] as? String
         
         return cell
     }
     
-    //Fetching messages
-    func fetchMessages() {
+    //Fetching Names
+    func fetchName() {
         let query = PFQuery(className: "_User")
         query.includeKey("username")
         
