@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDelegate {
+class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDelegate, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,6 +20,8 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchName()
+        
+        tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
     }
@@ -33,38 +35,22 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
-
+        
         let user = users[indexPath.row]
         cell.userNameLabel.text = user["username"] as? String
         
         return cell
     }
-    
-    
-    
-    
-//Todo: Fix the checkmarks
+
     //Adding Checkmarks on usernames
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-//        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-//    }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        
-//        if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
-//            if cell.accessoryType == .checkmark{
-//                cell.accessoryType = .none
-//            }
-//            else{
-//                cell.accessoryType = .checkmark
-//            }
-//        }
-//        
-//    }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark{
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+        }else{
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
+    }
     
     //Fetching Names
     func fetchName() {
