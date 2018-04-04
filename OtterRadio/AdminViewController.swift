@@ -79,6 +79,12 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
             self.tableView.reloadData()
         }
     }
+    
+    //LogOut
+    @IBAction func didTapLogOutButton(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
+    }
+
 
 
 }
