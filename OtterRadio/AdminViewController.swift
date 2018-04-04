@@ -81,14 +81,12 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         }
     }
     
-    
-    //Todo: fix name to match the searchText
+    //Search Bar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        
         let user = PFQuery(className: "_User")
         
         if searchText != nil{
-            user.whereKey("username", contains: searchText)
+            user.whereKey("username", matchesRegex: "(?i)\(searchText)")
         }
         user.findObjectsInBackground { (results, error) -> Void in
             self.users = (results)!
