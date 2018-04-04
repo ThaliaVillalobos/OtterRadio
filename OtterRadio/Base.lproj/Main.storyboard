@@ -370,6 +370,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="tEw-zY-YhB" id="BdR-97-VK6"/>
                         <outlet property="searchDisplayController" destination="Kwt-az-142" id="dKy-Cm-Zhd"/>
                         <outlet property="tableView" destination="bSb-g3-9Ls" id="M27-pY-3S9"/>
                     </connections>
@@ -417,6 +418,6 @@
         <image name="video-camera" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qP0-77-3GR"/>
+        <segue reference="yta-0E-GBP"/>
     </inferredMetricsTieBreakers>
 </document>
