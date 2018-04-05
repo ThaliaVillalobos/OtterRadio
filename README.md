@@ -15,10 +15,10 @@ The following **required** functionality is completed:
 The following **Optional** features are implemented:
 
 - [ ] User can see the schedule of the audio live stream
-- [ ] User can log in and log out of his or her account
-- [ ] User can listen to the radio when the phone screen is turned off
+- [x] User can log in and log out of his or her account
+- [x] User can listen to the radio when the phone screen is turned off
 - [X] User can view the live stream of the otter radio
-- [ ] User can request a song
+- [x] User can request a song
 - [ ] User can sign in as a radio talk host user
 - [ ] Radio talk host users can see the requests from users
 
