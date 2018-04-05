@@ -251,13 +251,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-VS-X7N">
-                                <rect key="frame" x="-94" y="169" width="508" height="300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <webView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleAspectFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-VS-X7N">
+                                <rect key="frame" x="0.0" y="213" width="375" height="241"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="5NP-OU-22U"/>
+                                    <constraint firstAttribute="height" constant="241" id="6ot-j9-HRM"/>
+                                </constraints>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ljF-VS-X7N" firstAttribute="centerX" secondItem="pE9-Pu-Y7L" secondAttribute="centerX" id="QEj-G9-WvG"/>
+                            <constraint firstItem="ljF-VS-X7N" firstAttribute="centerY" secondItem="pE9-Pu-Y7L" secondAttribute="centerY" id="Tw7-e7-aQL"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="video-camera" selectedImage="video-camera" id="ae8-Db-ryv"/>
                     <connections>
@@ -266,7 +273,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoT-Ql-aqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="1656"/>
+            <point key="canvasLocation" x="40.799999999999997" y="1655.6221889055473"/>
         </scene>
         <!--Request View Controller-->
         <scene sceneID="z1z-UI-ouL">
