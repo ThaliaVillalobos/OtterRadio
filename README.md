@@ -52,6 +52,13 @@ The following **Optional** features are implemented:
 ## Database Schema 
 <img src="http://i68.tinypic.com/2hrikxw.jpg">
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://i.imgur.com/UrxlHMH.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## License
 
