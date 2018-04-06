@@ -7,6 +7,10 @@ target 'OtterRadio' do
 
   # Pods for OtterRadio
   pod 'Parse'
+  
+  # Pods for Google Calendar API
+  pod 'GoogleAPIClientForREST/Calendar'
+  pod 'GoogleSignIn'
 
   target 'OtterRadioTests' do
     inherit! :search_paths
