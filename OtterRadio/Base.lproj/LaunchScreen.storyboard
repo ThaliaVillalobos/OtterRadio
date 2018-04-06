@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,19 +21,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="otterRadioLogo" translatesAutoresizingMaskIntoConstraints="NO" id="KP7-vP-ajO">
-                                <rect key="frame" x="0.0" y="115" width="375" height="278"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otterRadioLogo" translatesAutoresizingMaskIntoConstraints="NO" id="KP7-vP-ajO">
+                                <rect key="frame" x="25" y="169" width="324" height="329"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="324" id="JFH-YV-nlc"/>
+                                    <constraint firstAttribute="height" constant="329" id="yUB-PY-T2X"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Otter Radio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PdJ-8q-JPe">
-                                <rect key="frame" x="96" y="369" width="182" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Otter Radio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PdJ-8q-JPe">
+                                <rect key="frame" x="100" y="490" width="174" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="rhe-Mi-LVd"/>
+                                    <constraint firstAttribute="height" constant="40" id="rkR-V2-fky"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KP7-vP-ajO" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dsq-DT-QKK"/>
+                            <constraint firstItem="KP7-vP-ajO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e18-N8-fCk"/>
+                            <constraint firstItem="PdJ-8q-JPe" firstAttribute="top" secondItem="KP7-vP-ajO" secondAttribute="bottom" constant="-8" id="xO6-E3-8Il"/>
+                            <constraint firstItem="PdJ-8q-JPe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="y4j-4j-ann"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,6 +53,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="otterRadioLogo" width="685" height="505"/>
+        <image name="otterRadioLogo" width="394" height="421"/>
     </resources>
 </document>
