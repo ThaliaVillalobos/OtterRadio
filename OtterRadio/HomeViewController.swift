@@ -43,7 +43,7 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
         
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 70
         
         fetchMessages()
         tableView.dataSource = self

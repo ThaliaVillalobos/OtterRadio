@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LiveViewController: UIViewController {
+class LiveViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var liveFeedWebView: UIWebView!
     
@@ -17,7 +17,11 @@ class LiveViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let liveFeedURL = URL(string: "http://media.csumb.edu/www/player/encoder.php?en=3&f=1")
+        liveFeedWebView.delegate = self
+        
+        let liveFeedURL = URL(string: "http://qt.csumb.edu:1935/live/encoder3.sdp/playlist.m3u8")
+        //let liveFeedURL = URL(string: "http://media.csumb.edu/www/player/encoder.php?en=3&f=1")
+            
         if let unwrapURL = liveFeedURL{
             
             let request = URLRequest(url: unwrapURL)
@@ -39,6 +43,8 @@ class LiveViewController: UIViewController {
             
            task.resume()
         }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +52,12 @@ class LiveViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        
+        liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.verticalAlign = 'middle';")
+        liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.textAlign = 'center';")
+        liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementById('mapid').style.margin = 'auto';")
+    }
 
     /*
     // MARK: - Navigation
