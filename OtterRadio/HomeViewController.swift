@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     var trayDown: CGPoint!
     var username: String!
     var otterRadio: RadioAPI!
-    
+    var admin: Admin!
     var messages: [PFObject] = []
     
     override func viewDidLoad() {
@@ -29,7 +29,6 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         self.becomeFirstResponder()
         otterRadio = RadioAPI()
         self.view.layer.addSublayer(otterRadio.getAVPlayerLayer())
-        
         
         if PFUser.current() == nil{
             trayView.isHidden = true
@@ -63,6 +62,7 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     
     //Logout Button
     @IBAction func didTapLogOutButton(_ sender: Any) {
+        
         otterRadio.stopRadio()
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }

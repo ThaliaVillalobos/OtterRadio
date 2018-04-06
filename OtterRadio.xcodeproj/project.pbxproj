@@ -14,6 +14,7 @@
 		879961752072E92B005FAC88 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879961742072E92B005FAC88 /* UserCell.swift */; };
 		89AD1211206B54F400AD1701 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89AD1210206B54F400AD1701 /* AVFoundation.framework */; };
 		89C8415720677DB400090A23 /* RadioAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8415620677DB400090A23 /* RadioAPI.swift */; };
+		89FEA76D2076CC2600E6CF01 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FEA76C2076CC2600E6CF01 /* Admin.swift */; };
 		B8D638ACFFE7D89B4A1E6166 /* Pods_OtterRadioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 942072CCE36CAAFCC0ADD85C /* Pods_OtterRadioUITests.framework */; };
 		E92D84A652B5EF7B29158AFB /* Pods_OtterRadio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18807623BDEBAF81B3B9907 /* Pods_OtterRadio.framework */; };
 		EFA2EEC416484B4CD2DE7577 /* Pods_OtterRadioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1AAA6274EB8C78C9269A1D /* Pods_OtterRadioTests.framework */; };
@@ -56,6 +57,7 @@
 		879961742072E92B005FAC88 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		89AD1210206B54F400AD1701 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		89C8415620677DB400090A23 /* RadioAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioAPI.swift; sourceTree = "<group>"; };
+		89FEA76C2076CC2600E6CF01 /* Admin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		942072CCE36CAAFCC0ADD85C /* Pods_OtterRadioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtterRadioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18807623BDEBAF81B3B9907 /* Pods_OtterRadio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtterRadio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CA71EAC97394CE5B378B02 /* Pods-OtterRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadio.release.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadio/Pods-OtterRadio.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		89F5C7672070451F007BE1B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89FEA76C2076CC2600E6CF01 /* Admin.swift */,
 				89C8415620677DB400090A23 /* RadioAPI.swift */,
 			);
 			name = Model;
@@ -522,6 +525,7 @@
 				F600F21320670D870068B6F5 /* LoginViewController.swift in Sources */,
 				F6C7EE2C2064FE6700825764 /* ViewController.swift in Sources */,
 				89C8415720677DB400090A23 /* RadioAPI.swift in Sources */,
+				89FEA76D2076CC2600E6CF01 /* Admin.swift in Sources */,
 				F6C1F089206F73D0000DA5A9 /* RequestViewController.swift in Sources */,
 				F6C7EE2A2064FE6700825764 /* AppDelegate.swift in Sources */,
 				8765DAE3206B35570017C4DE /* HomeViewController.swift in Sources */,

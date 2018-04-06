@@ -31,7 +31,22 @@ class LoginViewController: UIViewController {
                 print("User log in failed: \(error.localizedDescription)")
             } else {
                 print("User logged in successfully")
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                
+                switch PFUser.current()!.value(forKey: "type") as! String {
+                    
+                    case "admin":
+                        self.performSegue(withIdentifier: "adminSegue", sender: nil)
+                        break
+                    case "host":
+                        print("In the works")
+                        break
+                    case "user":
+                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                        break
+                    default:
+                        print("Error")
+                }
+                
             }
         }
     }
@@ -42,6 +57,7 @@ class LoginViewController: UIViewController {
         
         newUser.username = usernameField.text
         newUser.password = passwordField.text
+        newUser["type"] = "user"
         
         newUser.signUpInBackground { (success: Bool, error: Error?) in
             if let error = error {
