@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        GIDSignIn.sharedInstance().clientID = ""
+        GIDSignIn.sharedInstance().clientID = "936707679375-4c4kp9babhhfvmhisasqs8i6g189e6la.apps.googleusercontent.com"
         
         Parse.initialize(
             with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
