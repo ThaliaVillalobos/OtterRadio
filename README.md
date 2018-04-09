@@ -15,10 +15,10 @@ The following **required** functionality is completed:
 The following **Optional** features are implemented:
 
 - [ ] User can see the schedule of the audio live stream
-- [ ] User can log in and log out of his or her account
-- [ ] User can listen to the radio when the phone screen is turned off
+- [x] User can log in and log out of his or her account
+- [x] User can listen to the radio when the phone screen is turned off
 - [X] User can view the live stream of the otter radio
-- [ ] User can request a song
+- [x] User can request a song
 - [ ] User can sign in as a radio talk host user
 - [ ] Radio talk host users can see the requests from users
 
@@ -52,6 +52,13 @@ The following **Optional** features are implemented:
 ## Database Schema 
 <img src="http://i68.tinypic.com/2hrikxw.jpg">
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://i.imgur.com/UrxlHMH.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## License
 
