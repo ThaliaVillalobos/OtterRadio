@@ -39,6 +39,10 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         
         let user = users[indexPath.row]
         cell.userNameLabel.text = user["username"] as? String
+        print(user["type"] as? String ?? "No user type")
+        if user["type"] as? String == "host" {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        }
         
         return cell
     }
@@ -48,7 +52,17 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
         }else{
+            let user = users[indexPath.row]
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            PFCloud.callFunction(inBackground: "makeHost", withParameters: ["username": user["username"], "id": user.objectId]) { (response, error) in
+                if error == nil {
+                    // The function was successfully executed and you have a correct // response object
+                    print(response as? String ?? "Response = nil")
+                } else {
+                    // The function returned a error
+                    print("There was an error")
+                }
+            }
         }
     }
     

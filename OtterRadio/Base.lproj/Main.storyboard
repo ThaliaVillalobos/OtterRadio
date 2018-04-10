@@ -77,14 +77,6 @@
                                     <action selector="onSignGuest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mBg-Y6-zKq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Okt-T7-0j8">
-                                <rect key="frame" x="172" y="610" width="33" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Host"/>
-                                <connections>
-                                    <segue destination="X7S-h9-l7m" kind="presentation" id="gvV-AO-ajT"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otterRadioLogo" translatesAutoresizingMaskIntoConstraints="NO" id="okQ-AZ-bg6">
                                 <rect key="frame" x="92.5" y="28" width="190" height="207"/>
                                 <constraints>
@@ -118,6 +110,7 @@
                         <outlet property="usernameField" destination="81i-mQ-kP0" id="4MT-LC-IIX"/>
                         <segue destination="XPb-dY-Fzr" kind="presentation" identifier="loginSegue" id="qP0-77-3GR"/>
                         <segue destination="0ij-R5-XoL" kind="show" identifier="adminSegue" id="Eu4-ul-eZy"/>
+                        <segue destination="X7S-h9-l7m" kind="show" identifier="hostSegue" id="fIl-GW-rSD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -724,7 +717,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Zps-x3-H4c">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="X7S-h9-l7m" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="hostPage" automaticallyAdjustsScrollViewInsets="NO" id="X7S-h9-l7m" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="sHP-zM-Mon">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

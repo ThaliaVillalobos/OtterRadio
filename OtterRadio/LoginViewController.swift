@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
                         self.performSegue(withIdentifier: "adminSegue", sender: nil)
                         break
                     case "host":
-                        print("In the works")
+                        self.performSegue(withIdentifier: "hostSegue", sender: nil)
                         break
                     case "user":
                         self.performSegue(withIdentifier: "loginSegue", sender: nil)
