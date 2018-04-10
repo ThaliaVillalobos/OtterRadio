@@ -13,6 +13,7 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var users: [PFObject] = []
     var filteredData: [String]!
@@ -21,10 +22,13 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
     
     private var selectedUser: PFObject! = nil
     private var selectedTableViewCell: UITableViewCell!
+    private var userType: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchName()
+        //fetchName()
+        searchForUser("user")
+        userType = "user"
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -69,9 +73,11 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         
         let user = users[indexPath.row]
         cell.userNameLabel.text = user["username"] as? String
-        print(user["type"] as? String ?? "No user type")
-        if user["type"] as? String == "host" {
+        //print(user["type"] as? String ?? "No user type")
+        if (user["type"] as! String) == "host" {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
+        }else{
+            cell.accessoryType = UITableViewCellAccessoryType.none
         }
         
         return cell
@@ -94,6 +100,7 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
     func fetchName() {
         let query = PFQuery(className: "_User")
         query.includeKey("username")
+        query.includeKey("type")
         
         query.findObjectsInBackground { ( users: [PFObject]?, error: Error?) in
             if let userName = users {
@@ -111,6 +118,7 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         
         if searchText != nil{
             user.whereKey("username", matchesRegex: "(?i)\(searchText)")
+            user.whereKey("type", equalTo: self.userType)
         }
         user.findObjectsInBackground { (results, error) -> Void in
             self.users = (results)!
@@ -118,7 +126,20 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         }
     }
     
-    func searchForHostUsers() {
+    func searchForUser(_ userType: String) {
+        let query = PFQuery(className: "_User")
+        query.includeKey("username")
+        query.includeKey("type")
+        
+        query.whereKey("type", equalTo: userType)
+        query.findObjectsInBackground { ( users: [PFObject]?, error: Error?) in
+            if let userName = users {
+                self.users = userName
+                self.tableView.reloadData()
+            } else {
+                print("Error receiving the messages")
+            }
+        }
         
     }
     
@@ -127,6 +148,19 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
     
+    @IBAction func indexChanged(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex
+        {
+            case 0:
+                searchForUser("user")
+                userType = "user"
+            case 1:
+                searchForUser("host")
+                userType = "host"
+            default:
+                break
+        }
+    }
     private func turnUserToHost() {
         PFCloud.callFunction(inBackground: "makeHost", withParameters: ["username": self.selectedUser["username"], "id": self.selectedUser.objectId as Any]) { (response, error) in
             if error == nil {
