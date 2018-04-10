@@ -16,6 +16,11 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
     
     var users: [PFObject] = []
     var filteredData: [String]!
+    var confirmHostAlert: UIAlertController! = nil
+    var confirmUserAlert: UIAlertController! = nil
+    
+    private var selectedUser: PFObject! = nil
+    private var selectedTableViewCell: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +29,31 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        
+        confirmHostAlert = UIAlertController(title: "Promote User", message: "Turn user into radio host?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        confirmHostAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.turnUserToHost()
+        }))
+        
+        confirmHostAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.selectedUser = nil
+            self.selectedTableViewCell = nil
+            print("Canceled")
+        }))
+        //-----------
+        confirmUserAlert = UIAlertController(title: "Revoke Host", message: "Turn host into regular user?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        confirmUserAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.turnHostToUser()
+        }))
+        
+        confirmUserAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.selectedUser = nil
+            self.selectedTableViewCell = nil
+            print("Canceled")
+        }))
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,19 +80,13 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
     //Adding Checkmarks on usernames
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark{
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            self.selectedUser = users[indexPath.row]
+            self.selectedTableViewCell = tableView.cellForRow(at: indexPath)
+            self.present(confirmUserAlert, animated: true, completion: nil)
         }else{
-            let user = users[indexPath.row]
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
-            PFCloud.callFunction(inBackground: "makeHost", withParameters: ["username": user["username"], "id": user.objectId]) { (response, error) in
-                if error == nil {
-                    // The function was successfully executed and you have a correct // response object
-                    print(response as? String ?? "Response = nil")
-                } else {
-                    // The function returned a error
-                    print("There was an error")
-                }
-            }
+            selectedUser = users[indexPath.row]
+            selectedTableViewCell = tableView.cellForRow(at: indexPath)
+            self.present(confirmHostAlert, animated: true, completion: nil)
         }
     }
     
@@ -94,12 +118,48 @@ class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDe
         }
     }
     
+    func searchForHostUsers() {
+        
+    }
+    
     //LogOut
     @IBAction func didTapLogOutButton(_ sender: Any) {
-        
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
+    
+    private func turnUserToHost() {
+        PFCloud.callFunction(inBackground: "makeHost", withParameters: ["username": self.selectedUser["username"], "id": self.selectedUser.objectId as Any]) { (response, error) in
+            if error == nil {
+                // The function was successfully executed and you have a correct // response object
+                print(response as? String ?? "Response = nil")
+                self.selectedTableViewCell.accessoryType = UITableViewCellAccessoryType.checkmark
+                
+                self.selectedUser = nil
+                self.selectedTableViewCell = nil
+            } else {
+                // The function returned a error
+                print("There was an error")
+                self.selectedUser = nil
+                self.selectedTableViewCell = nil
+            }
+        }
+    }
 
-
-
+    private func turnHostToUser() {
+        PFCloud.callFunction(inBackground: "makeUser", withParameters: ["username": self.selectedUser["username"], "id": self.selectedUser.objectId!]) { (response, error) in
+            if error == nil {
+                // The function was successfully executed and you have a correct // response object
+                print(response as? String ?? "Response = nil")
+                self.selectedTableViewCell.accessoryType = UITableViewCellAccessoryType.none
+                
+                self.selectedUser = nil
+                self.selectedTableViewCell = nil
+            } else {
+                // The function returned a error
+                print("There was an error")
+                self.selectedUser = nil
+                self.selectedTableViewCell = nil
+            }
+        }
+    }
 }
