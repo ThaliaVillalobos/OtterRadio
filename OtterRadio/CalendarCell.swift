@@ -15,8 +15,6 @@ class CalendarCell: UITableViewCell {
     @IBOutlet weak var showLabel: UILabel!
     @IBOutlet weak var reminderSwitch: UISwitch!
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

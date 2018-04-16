@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		268558B6207C560B00303861 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268558B5207C560B00303861 /* CalendarCell.swift */; };
+		268B3E8220854D4F0073BB8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268B3E8120854D4F0073BB8B /* Main.storyboard */; };
 		8737B954206C435B000D3CC4 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8737B953206C435B000D3CC4 /* ChatCell.swift */; };
 		8765DAE3206B35570017C4DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765DAE2206B35570017C4DE /* HomeViewController.swift */; };
 		8765DAE5206B458F0017C4DE /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765DAE4206B458F0017C4DE /* LiveViewController.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		1D1AAA6274EB8C78C9269A1D /* Pods_OtterRadioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtterRadioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		268558B5207C560B00303861 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		268B3E8120854D4F0073BB8B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3EECC123CFF859C5E220759E /* Pods-OtterRadioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioUITests/Pods-OtterRadioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4726D8E233597520E3710D66 /* Pods-OtterRadioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioTests/Pods-OtterRadioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8737B953206C435B000D3CC4 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				8737B952206C42CF000D3CC4 /* View */,
 				F600F21120670D540068B6F5 /* ViewController */,
 				F6C7EE292064FE6700825764 /* AppDelegate.swift */,
+				268B3E8120854D4F0073BB8B /* Main.storyboard */,
 				F6C7EE302064FE6700825764 /* Assets.xcassets */,
 				F6C7EE322064FE6700825764 /* LaunchScreen.storyboard */,
 				F6C7EE352064FE6700825764 /* Info.plist */,
@@ -354,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				268B3E8220854D4F0073BB8B /* Main.storyboard in Resources */,
 				F6C7EE342064FE6700825764 /* LaunchScreen.storyboard in Resources */,
 				F6C7EE312064FE6700825764 /* Assets.xcassets in Resources */,
 			);

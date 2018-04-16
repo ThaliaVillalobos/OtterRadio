@@ -9,8 +9,10 @@ import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
 
-class CalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class CalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var calendarTableView: UITableView!
+    var preview: [GTLRCalendar_Event] = []
     
     // If modifying these scopes, delete your previously saved credentials by
     // resetting the iOS simulator or uninstall the app.
@@ -23,6 +25,12 @@ class CalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarTableView.delegate = self
+        calendarTableView.dataSource = self
+        
+        calendarTableView.rowHeight = UITableViewAutomaticDimension
+        calendarTableView.estimatedRowHeight = 130
+        
 //        // Configure Google Sign-in.
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -33,13 +41,15 @@ class CalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         view.addSubview(signInButton)
         
         // Add a UITextView to display output.
-        output.frame = view.bounds
-        output.isEditable = false
-        output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        output.isHidden = true
-        view.addSubview(output);
-        
+//        output.frame = view.bounds
+//        output.isEditable = false
+//        output.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+//        output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+//        output.isHidden = true
+//        view.addSubview(output);
+        fetchEvents()
+        calendarTableView.reloadData()
+//
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -83,6 +93,8 @@ class CalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         
         var outputText = ""
         if let events = response.items, !events.isEmpty {
+            self.preview = events
+            calendarTableView.reloadData()
             for event in events {
                 print("\(event)\n")
                 let start = event.start!.dateTime ?? event.start!.date!
@@ -95,7 +107,7 @@ class CalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         } else {
             outputText = "No upcoming events found."
         }
-        output.text = outputText
+        //output.text = outputText
     }
     
     
@@ -113,5 +125,35 @@ class CalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         )
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return preview.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CalendarEvent", for: indexPath) as! CalendarCell
+        
+        let event = preview[indexPath.row]
+        let start = event.start!.dateTime ?? event.start!.date!
+        
+        let startString = DateFormatter.localizedString(
+            from: start.date,
+            dateStyle: .short,
+            timeStyle: .short)
+        
+        cell.dayLabel.text = startString
+        
+        
+//        let dateFormatter = DateFormatter()
+//
+//
+//        dateFormatter.locale = Locale(identifier: "en_US")
+//        dateFormatter.setLocalizedDateFormatFromTemplate("MMMMd") // set template after setting locale
+//        print(dateFormatter.string(from: start)) // December 31
+        
+        return cell
     }
 }
