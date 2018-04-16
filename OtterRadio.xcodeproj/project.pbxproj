@@ -22,6 +22,7 @@
 		E92D84A652B5EF7B29158AFB /* Pods_OtterRadio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18807623BDEBAF81B3B9907 /* Pods_OtterRadio.framework */; };
 		EFA2EEC416484B4CD2DE7577 /* Pods_OtterRadioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D1AAA6274EB8C78C9269A1D /* Pods_OtterRadioTests.framework */; };
 		F600F21320670D870068B6F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F600F21220670D870068B6F5 /* LoginViewController.swift */; };
+		F65AF66120855BE7005AE20A /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65AF66020855BE7005AE20A /* InfiniteScrollActivityView.swift */; };
 		F6ACE9DE2076BABA00C43C2F /* DisplayMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ACE9DD2076BABA00C43C2F /* DisplayMusicViewController.swift */; };
 		F6C1F089206F73D0000DA5A9 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1F088206F73D0000DA5A9 /* RequestViewController.swift */; };
 		F6C7EE2A2064FE6700825764 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7EE292064FE6700825764 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 		B3CA71EAC97394CE5B378B02 /* Pods-OtterRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadio.release.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadio/Pods-OtterRadio.release.xcconfig"; sourceTree = "<group>"; };
 		BD767662D6AF0A6FC6D684AF /* Pods-OtterRadioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioTests/Pods-OtterRadioTests.release.xcconfig"; sourceTree = "<group>"; };
 		F600F21220670D870068B6F5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F65AF66020855BE7005AE20A /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		F6ACE9DD2076BABA00C43C2F /* DisplayMusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayMusicViewController.swift; sourceTree = "<group>"; };
 		F6C1F088206F73D0000DA5A9 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		F6C7EE262064FE6700825764 /* OtterRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtterRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 				879961742072E92B005FAC88 /* UserCell.swift */,
 				87D1373220771E5200A97C77 /* LiveCell.swift */,
 				87D1373620772A6F00A97C77 /* MusicCell.swift */,
+				F65AF66020855BE7005AE20A /* InfiniteScrollActivityView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65AF66120855BE7005AE20A /* InfiniteScrollActivityView.swift in Sources */,
 				87D1373520771EB600A97C77 /* LiveChatViewController.swift in Sources */,
 				F6ACE9DE2076BABA00C43C2F /* DisplayMusicViewController.swift in Sources */,
 				87D1373320771E5200A97C77 /* LiveCell.swift in Sources */,

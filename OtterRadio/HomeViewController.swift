@@ -9,7 +9,9 @@
 import UIKit
 import Parse
 
-class HomeViewController: UIViewController, UITableViewDataSource {
+
+class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate{
+    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var trayView: UIView!
     @IBOutlet weak var chatMessageField: UITextField!
@@ -24,25 +26,18 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     var admin: Admin!
     var messages: [PFObject] = []
     
+    var isMoreDataLoading = false
+    var loadingMoreView: InfiniteScrollActivityView?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.becomeFirstResponder()
         otterRadio = RadioAPI()
         self.view.layer.addSublayer(otterRadio.getAVPlayerLayer())
         
-        if PFUser.current() == nil{
-            trayView.isHidden = true
-            var viewControllers = tabBarController?.viewControllers
-            viewControllers?.remove(at: 2)
-            tabBarController?.viewControllers = viewControllers
-        }
-        
-        trayDownOffset = 285
-        trayUp = trayView.center
-        trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 70
+        checkUser()
+        trayDesign()
         
         fetchMessages()
         tableView.dataSource = self
@@ -58,7 +53,27 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    
+    //Checking to see if a user is a guest
+    func checkUser() {
+        if PFUser.current() == nil{
+            trayView.isHidden = true
+            var viewControllers = tabBarController?.viewControllers
+            viewControllers?.remove(at: 2)
+            tabBarController?.viewControllers = viewControllers
+        }
+    }
+    
+    //The style of the Tray view
+    func trayDesign(){
+        trayDownOffset = 285
+        trayUp = trayView.center
+        trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 70
+    }
     
     //Logout Button
     @IBAction func didTapLogOutButton(_ sender: Any) {
@@ -163,5 +178,22 @@ class HomeViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if (!isMoreDataLoading) {
+//            // Calculate the position of one screen length before the bottom of the results
+//            let scrollViewContentHeight = tableView.contentSize.height
+//            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+//            
+//            // When the user has scrolled past the threshold, start requesting
+//            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging) {
+//                
+//                isMoreDataLoading = true
+//                
+//                // Code to load more results
+//                loadMoreData()
+//            }
+//        }
+//    }
   
 }
