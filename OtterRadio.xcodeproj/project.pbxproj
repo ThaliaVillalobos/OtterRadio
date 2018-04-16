@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		268558B6207C560B00303861 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268558B5207C560B00303861 /* CalendarCell.swift */; };
 		8737B954206C435B000D3CC4 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8737B953206C435B000D3CC4 /* ChatCell.swift */; };
 		8765DAE3206B35570017C4DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765DAE2206B35570017C4DE /* HomeViewController.swift */; };
 		8765DAE5206B458F0017C4DE /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8765DAE4206B458F0017C4DE /* LiveViewController.swift */; };
@@ -25,7 +26,7 @@
 		F6ACE9DE2076BABA00C43C2F /* DisplayMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ACE9DD2076BABA00C43C2F /* DisplayMusicViewController.swift */; };
 		F6C1F089206F73D0000DA5A9 /* RequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C1F088206F73D0000DA5A9 /* RequestViewController.swift */; };
 		F6C7EE2A2064FE6700825764 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7EE292064FE6700825764 /* AppDelegate.swift */; };
-		F6C7EE2C2064FE6700825764 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7EE2B2064FE6700825764 /* ViewController.swift */; };
+		F6C7EE2C2064FE6700825764 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C7EE2B2064FE6700825764 /* CalendarViewController.swift */; };
 		F6C7EE2F2064FE6700825764 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C7EE2D2064FE6700825764 /* Main.storyboard */; };
 		F6C7EE312064FE6700825764 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6C7EE302064FE6700825764 /* Assets.xcassets */; };
 		F6C7EE342064FE6700825764 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C7EE322064FE6700825764 /* LaunchScreen.storyboard */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		1D1AAA6274EB8C78C9269A1D /* Pods_OtterRadioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OtterRadioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		268558B5207C560B00303861 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		3EECC123CFF859C5E220759E /* Pods-OtterRadioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioUITests/Pods-OtterRadioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4726D8E233597520E3710D66 /* Pods-OtterRadioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OtterRadioTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OtterRadioTests/Pods-OtterRadioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8737B953206C435B000D3CC4 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 		F6C1F088206F73D0000DA5A9 /* RequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestViewController.swift; sourceTree = "<group>"; };
 		F6C7EE262064FE6700825764 /* OtterRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OtterRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C7EE292064FE6700825764 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F6C7EE2B2064FE6700825764 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F6C7EE2B2064FE6700825764 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		F6C7EE2E2064FE6700825764 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6C7EE302064FE6700825764 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6C7EE332064FE6700825764 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				8737B953206C435B000D3CC4 /* ChatCell.swift */,
 				879961742072E92B005FAC88 /* UserCell.swift */,
+				268558B5207C560B00303861 /* CalendarCell.swift */,
 				87D1373220771E5200A97C77 /* LiveCell.swift */,
 				87D1373620772A6F00A97C77 /* MusicCell.swift */,
 			);
@@ -172,6 +175,7 @@
 				879961722072DDFB005FAC88 /* AdminViewController.swift */,
 				F6ACE9DD2076BABA00C43C2F /* DisplayMusicViewController.swift */,
 				87D1373420771EB600A97C77 /* LiveChatViewController.swift */,
+				F6C7EE2B2064FE6700825764 /* CalendarViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -205,7 +209,6 @@
 				8737B952206C42CF000D3CC4 /* View */,
 				F600F21120670D540068B6F5 /* ViewController */,
 				F6C7EE292064FE6700825764 /* AppDelegate.swift */,
-				F6C7EE2B2064FE6700825764 /* ViewController.swift */,
 				F6C7EE2D2064FE6700825764 /* Main.storyboard */,
 				F6C7EE302064FE6700825764 /* Assets.xcassets */,
 				F6C7EE322064FE6700825764 /* LaunchScreen.storyboard */,
@@ -549,8 +552,9 @@
 				87D1373320771E5200A97C77 /* LiveCell.swift in Sources */,
 				879961732072DDFB005FAC88 /* AdminViewController.swift in Sources */,
 				F600F21320670D870068B6F5 /* LoginViewController.swift in Sources */,
-				F6C7EE2C2064FE6700825764 /* ViewController.swift in Sources */,
+				F6C7EE2C2064FE6700825764 /* CalendarViewController.swift in Sources */,
 				89C8415720677DB400090A23 /* RadioAPI.swift in Sources */,
+				268558B6207C560B00303861 /* CalendarCell.swift in Sources */,
 				89FEA76D2076CC2600E6CF01 /* Admin.swift in Sources */,
 				F6C1F089206F73D0000DA5A9 /* RequestViewController.swift in Sources */,
 				F6C7EE2A2064FE6700825764 /* AppDelegate.swift in Sources */,

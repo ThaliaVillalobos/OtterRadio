@@ -7,6 +7,8 @@
 //   Manipulates events and other calendar data.
 // Documentation:
 //   https://developers.google.com/google-apps/calendar/firstapp
+#import <GTMSessionFetcher/GTMSessionFetcher.h>
+#import <GTMSessionFetcher/GTMSessionFetcherService.h>
 
 #if GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"

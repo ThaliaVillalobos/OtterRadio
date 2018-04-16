@@ -9,7 +9,7 @@ import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
 
-class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
+class CalendarViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
     
     // If modifying these scopes, delete your previously saved credentials by
@@ -23,12 +23,12 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure Google Sign-in.
+//        // Configure Google Sign-in.
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().scopes = scopes
         GIDSignIn.sharedInstance().signInSilently()
-        
+
         // Add the sign-in button.
         view.addSubview(signInButton)
         
@@ -39,6 +39,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         output.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         output.isHidden = true
         view.addSubview(output);
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
@@ -57,7 +58,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
     
     // Construct a query and get a list of upcoming events from the user calendar
     func fetchEvents() {
-        let query = GTLRCalendarQuery_EventsList.query(withCalendarId: "primary")
+        let query = GTLRCalendarQuery_EventsList.query(withCalendarId: "ottermedia@ascsumb.org")
         query.maxResults = 10
         query.timeMin = GTLRDateTime(date: Date())
         query.singleEvents = true
@@ -75,6 +76,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         error : NSError?) {
         
         if let error = error {
+            print("Display results with ticket")
             showAlert(title: "Error", message: error.localizedDescription)
             return
         }
@@ -82,6 +84,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate {
         var outputText = ""
         if let events = response.items, !events.isEmpty {
             for event in events {
+                print("\(event)\n")
                 let start = event.start!.dateTime ?? event.start!.date!
                 let startString = DateFormatter.localizedString(
                     from: start.date,

@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // check if user is logged in.
         if PFUser.current() != nil {
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // view controller currently being set in Storyboard as default will be overridden
             if PFUser.current()?.value(forKey: "type") as! String == "admin"{
