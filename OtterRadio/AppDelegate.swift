@@ -35,9 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // view controller currently being set in Storyboard as default will be overridden
-            if PFUser.current()?.value(forKey: "type") as! String == "admin"{
+            if PFUser.current()?.value(forKey: "type") as! String == "admin" {
                 window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "adminPage")
-            } else {
+            } else if PFUser.current()?.value(forKey: "type") as! String == "host" {
+                window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "hostPage")
+            }else {
                 window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "homePage")
             }
         }

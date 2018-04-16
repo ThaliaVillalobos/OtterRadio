@@ -19,8 +19,8 @@ The following **Optional** features are implemented:
 - [x] User can listen to the radio when the phone screen is turned off
 - [X] User can view the live stream of the otter radio
 - [x] User can request a song
-- [ ] User can sign in as a radio talk host user
-- [ ] Radio talk host users can see the requests from users
+- [x] User can sign in as a radio talk host user
+- [x] Radio talk host users can see the requests from users
 
 
 ## Considerations
@@ -57,6 +57,11 @@ The following **Optional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 <img src='https://i.imgur.com/UrxlHMH.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+## Part 2:
+<img src='https://i.imgur.com/6BZoROK.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
