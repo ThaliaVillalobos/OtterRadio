@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17C2120" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -137,7 +137,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FaI-HZ-u0o">
-                                <rect key="frame" x="0.0" y="313" width="375" height="305"/>
+                                <rect key="frame" x="0.0" y="313" width="375" height="354"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="NFN-VG-TdG">
                                         <rect key="frame" x="178" y="4" width="19" height="20"/>
@@ -156,14 +156,14 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KdW-mV-Bui">
-                                        <rect key="frame" x="0.0" y="62" width="375" height="243"/>
+                                        <rect key="frame" x="0.0" y="62" width="375" height="292"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="70" id="GXs-ry-xrZ" customClass="ChatCell" customModule="OtterRadio" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GXs-ry-xrZ" id="TKa-q0-sVW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ys-qh-Pgo">
@@ -255,6 +255,7 @@
                     <tabBarItem key="tabBarItem" image="headphones (4)" selectedImage="headphones (4)" id="VlI-29-ocK"/>
                     <connections>
                         <outlet property="chatMessageField" destination="m73-Lc-fXb" id="5PP-LH-yZ8"/>
+                        <outlet property="downArrowImgView" destination="NFN-VG-TdG" id="dLj-Oe-q1h"/>
                         <outlet property="playButton" destination="EHW-QB-1j5" id="lbm-US-UCl"/>
                         <outlet property="tableView" destination="KdW-mV-Bui" id="CKC-cq-z7C"/>
                         <outlet property="trayView" destination="FaI-HZ-u0o" id="9Vg-31-7ue"/>
@@ -453,7 +454,7 @@
                                         <rect key="frame" x="0.0" y="28" width="343" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJ4-Rg-XGC" id="JYU-MQ-61x">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="57"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhA-gp-inP">
@@ -576,7 +577,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y6B-H4-5y2" id="8Mm-xT-qBG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA6-p6-c0t">
@@ -650,7 +651,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NEq-Rg-SYD" id="yci-gN-Tt9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="151.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPW-gN-UJc">
