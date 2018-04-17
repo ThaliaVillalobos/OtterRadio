@@ -256,6 +256,7 @@
                     <connections>
                         <outlet property="chatMessageField" destination="m73-Lc-fXb" id="5PP-LH-yZ8"/>
                         <outlet property="downArrowImgView" destination="NFN-VG-TdG" id="dLj-Oe-q1h"/>
+                        <outlet property="logoImg" destination="tOE-zZ-uzG" id="qZV-5c-iJ6"/>
                         <outlet property="playButton" destination="EHW-QB-1j5" id="lbm-US-UCl"/>
                         <outlet property="tableView" destination="KdW-mV-Bui" id="CKC-cq-z7C"/>
                         <outlet property="trayView" destination="FaI-HZ-u0o" id="9Vg-31-7ue"/>

@@ -18,6 +18,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var downArrowImgView: UIImageView!
     
+    @IBOutlet weak var logoImg: UIImageView!
+    var logoImgCenter: CGPoint!
+    var logoDownOffset: CGFloat!
+    var logoUp: CGPoint!
+    var logoDown: CGPoint!
+    
+    
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat!
     var trayUp: CGPoint!
@@ -41,6 +48,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         
         checkUser()
         trayDesign()
+        logoDesign()
 
         fetchMessages()
         tableView.dataSource = self
@@ -89,9 +97,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
     }
     
+    func logoDesign(){
+        logoDownOffset = 150
+        logoUp = logoImg.center
+        logoDown = CGPoint(x: logoImg.center.x ,y: logoImg.center.y + logoDownOffset)
+
+    }
+    
     //Logout Button
     @IBAction func didTapLogOutButton(_ sender: Any) {
-        
         otterRadio.stopRadio()
         NotificationCenter.default.post(name: NSNotification.Name("didLogout"), object: nil)
     }
@@ -115,7 +129,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         
         if sender.state == .began {
             trayOriginalCenter = trayView.center
-            isArrowFacingUp = !isArrowFacingUp
+            logoImgCenter = logoImg.center
         } else if sender.state == .changed {
             trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
         } else if sender.state == .ended {
@@ -123,22 +137,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
                 UIView.animate(withDuration: 0.3) {
                     self.trayView.center = self.trayDown
                     self.downArrowImgView.transform = CGAffineTransform(rotationAngle: .pi)
+                    self.logoImg.center = self.logoDown
                 }
                 
             } else {
                 UIView.animate(withDuration: 0.3) {
                     self.trayView.center = self.trayUp
                     self.downArrowImgView.transform = CGAffineTransform.identity
+                    self.logoImg.center = self.logoUp
                 }
             }
-            
-//            UIView.animate(withDuration:0.3){
-//                if self.isArrowFacingUp {
-//                    self.downArrowImgView.transform = CGAffineTransform(rotationAngle: .pi)
-//                } else {
-//                    self.downArrowImgView.transform = CGAffineTransform.identity
-//                }
-//            }
+
             
         }
     }
