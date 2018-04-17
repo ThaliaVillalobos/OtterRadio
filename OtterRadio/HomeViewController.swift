@@ -137,21 +137,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
-        
-        let mess = messages[indexPath.row]
-        
-        if let user = mess["user"] as? PFUser {
-            // User found! update username label with username
-            cell.usernameLabel.text = user.username
-        } else {
-            // No user found, set default username
-            cell.usernameLabel.text = "🤖"
-        }
-        
-        cell.messageLabel.text = mess["text"] as? String
-        
+        cell.message = messages[indexPath.row]
         return cell
     }
     
