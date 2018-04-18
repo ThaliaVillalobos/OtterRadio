@@ -13,6 +13,8 @@ class ChatCell: UITableViewCell {
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var chatDate: UILabel!
+    var createdAtString: String = ""
     
     var message: PFObject! {
         didSet {
@@ -20,6 +22,16 @@ class ChatCell: UITableViewCell {
                 usernameLabel.text = user.username
             }
             messageLabel.text = message["text"] as? String
+            
+            let createdAtOringinalString = message.createdAt?.description
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzzz"
+            let date = formatter.date(from: createdAtOringinalString!)!
+            formatter.dateFormat = "MMM dd HH:mm a"
+            formatter.dateStyle = .short
+            formatter.timeStyle = .short
+            createdAtString = formatter.string(from: date)
+            chatDate.text = createdAtString
         }
     }
     

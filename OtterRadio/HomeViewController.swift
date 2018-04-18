@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     var logoUp: CGPoint!
     var logoDown: CGPoint!
     
-    
     var trayOriginalCenter: CGPoint!
     var trayDownOffset: CGFloat!
     var trayUp: CGPoint!
@@ -46,15 +45,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         otterRadio = RadioAPI()
         self.view.layer.addSublayer(otterRadio.getAVPlayerLayer())
         
-        checkUser()
-        trayDesign()
-        logoDesign()
-
-        //fetchMessages()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70
+        
+        checkUser()
+        trayDesign()
+        //logoDesign()
+        //fetchMessages()
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(HomeViewController.didPullToRefresh(_:)), for: .valueChanged)
@@ -63,6 +62,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
 
         loadMoreData()
+        
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
         loadingMoreView = InfiniteScrollActivityView(frame: frame)
         loadingMoreView!.isHidden = true
@@ -128,7 +128,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         
         if sender.state == .began {
             trayOriginalCenter = trayView.center
-            logoImgCenter = logoImg.center
+            //logoImgCenter = logoImg.center
         } else if sender.state == .changed {
             trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
         } else if sender.state == .ended {
@@ -136,18 +136,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
                 UIView.animate(withDuration: 0.3) {
                     self.trayView.center = self.trayDown
                     self.downArrowImgView.transform = CGAffineTransform(rotationAngle: .pi)
-                    self.logoImg.center = self.logoDown
+                    //self.logoImg.center = self.logoDown
                 }
                 
             } else {
                 UIView.animate(withDuration: 0.3) {
                     self.trayView.center = self.trayUp
                     self.downArrowImgView.transform = CGAffineTransform.identity
-                    self.logoImg.center = self.logoUp
+                    //self.logoImg.center = self.logoUp
                 }
             }
-
-            
         }
     }
     
@@ -200,7 +198,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         }
     }
 
-    
     //Ininit Scroll
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (!isMoreDataLoading) {
