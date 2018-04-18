@@ -16,7 +16,6 @@ class RequestViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var shoutOut: UITextView!
     @IBOutlet weak var characterCountLabel: UILabel!
     
-    
     var phoneNumber = "8315823888"
     
     override func viewDidLoad() {
@@ -37,7 +36,6 @@ class RequestViewController: UIViewController, UITextViewDelegate {
         requestSong["shoutOut"] = shoutOut.text ?? ""
         requestSong["user"] = PFUser.current()
         
-        
         requestSong.saveInBackground { (success, error) in
             if success {
                 print("The request is saved!")
@@ -49,29 +47,20 @@ class RequestViewController: UIViewController, UITextViewDelegate {
                 print("Problem saving message: \(error.localizedDescription)")
             }
         }
-        
         performSegue(withIdentifier: "backHome", sender: nil)
-        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let characterLimit = 140
-        
         let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
-
         characterCountLabel.text = String(characterLimit - newText.characters.count)
-   
         return newText.characters.count < characterLimit
     }
-    
     
     @IBAction func makeCall(_ sender: UIButton) {
         if let url = URL(string: "tel://\(phoneNumber)"){
             UIApplication.shared.openURL(url)
         }
     }
-    
-    
-    
 
 }

@@ -12,7 +12,7 @@ class LiveCell: UITableViewCell {
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var message: UILabel!
-    
+    @IBOutlet weak var time: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

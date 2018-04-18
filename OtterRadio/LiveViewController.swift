@@ -12,8 +12,6 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var liveFeedWebView: UIWebView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,15 +56,5 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
         liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.textAlign = 'center';")
         liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementById('mapid').style.margin = 'auto';")
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

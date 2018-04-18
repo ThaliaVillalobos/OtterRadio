@@ -38,20 +38,7 @@ class DisplayMusicViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = musicTableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
-        
-        let song = music[indexPath.row]
-        
-        cell.artistName.text = song["artist"] as? String
-        cell.songTitle.text = song["song"] as? String
-        cell.shoutOut.text = song["shoutOut"] as? String
-        if let user = song["user"] as? PFUser {
-            // User found! update username label with username
-            cell.userName.text = user.username
-        } else {
-            // No user found, set default username
-            cell.userName.text = "🤖"
-        }
-        
+        cell.song = music[indexPath.row]
         return cell
     }
     

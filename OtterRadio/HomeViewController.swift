@@ -217,7 +217,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         }
     }
     
-    //Retra
+    //
     func loadMoreData() {
         let query = PFQuery(className: "Message")
         query.order(byDescending: "_created_at")
