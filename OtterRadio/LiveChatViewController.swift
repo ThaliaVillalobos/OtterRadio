@@ -22,7 +22,7 @@ class LiveChatViewController: UIViewController, UITableViewDataSource, UIScrollV
     override func viewDidLoad() {
         super.viewDidLoad()
         chatTableView.dataSource = self
-        chatTableView.dataSource = self
+        chatTableView.delegate = self
         chatTableView.rowHeight = UITableViewAutomaticDimension
         chatTableView.estimatedRowHeight = 70
         
