@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class AdminViewController: UIViewController, UITableViewDataSource,UISearchBarDelegate, UITableViewDelegate {
+class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
