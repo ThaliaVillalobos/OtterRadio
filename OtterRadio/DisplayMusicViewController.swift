@@ -22,6 +22,7 @@ class DisplayMusicViewController: UIViewController, UITableViewDataSource, UIScr
         super.viewDidLoad()
         fetchRequest()
         musicTableView.dataSource = self
+        musicTableView.delegate = self
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(DisplayMusicViewController.didPullToRefresh(_:)), for: .valueChanged)

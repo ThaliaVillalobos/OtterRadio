@@ -581,26 +581,26 @@
                                     <action selector="sendButton:" destination="xCE-cZ-0lV" eventType="touchUpInside" id="T3o-kU-U5w"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WeN-YG-iho">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WeN-YG-iho">
                                 <rect key="frame" x="0.0" y="150" width="375" height="468"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LiveChat" rowHeight="60" id="y6B-H4-5y2" customClass="LiveCell" customModule="OtterRadio" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LiveChat" rowHeight="104" id="y6B-H4-5y2" customClass="LiveCell" customModule="OtterRadio" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y6B-H4-5y2" id="8Mm-xT-qBG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA6-p6-c0t">
-                                                    <rect key="frame" x="17" y="-1" width="350" height="21"/>
+                                                    <rect key="frame" x="17" y="-1" width="350" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ic-9P-2fm">
-                                                    <rect key="frame" x="17" y="22" width="350" height="20"/>
+                                                    <rect key="frame" x="17" y="22" width="350" height="64"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -616,15 +616,15 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="leading" secondItem="DA6-p6-c0t" secondAttribute="leading" id="78C-gn-he0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6ic-9P-2fm" secondAttribute="bottom" constant="9.5" id="3EG-0Z-wNz"/>
                                                 <constraint firstItem="FGe-vE-poT" firstAttribute="top" secondItem="8Mm-xT-qBG" secondAttribute="top" id="7Ge-GT-0js"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="leading" secondItem="8Mm-xT-qBG" secondAttribute="leadingMargin" constant="9" id="7ga-ha-jsk"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="trailing" secondItem="8Mm-xT-qBG" secondAttribute="trailingMargin" id="Baq-NB-y4R"/>
+                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="top" secondItem="FGe-vE-poT" secondAttribute="bottom" constant="1" id="89y-r7-xCd"/>
+                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="leading" secondItem="DA6-p6-c0t" secondAttribute="leading" id="9lv-lP-xob"/>
+                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="trailing" secondItem="8Mm-xT-qBG" secondAttribute="trailingMargin" id="ADI-sb-jm5"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="FGe-vE-poT" secondAttribute="trailing" constant="15" id="FJ5-PP-9fj"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="top" secondItem="FGe-vE-poT" secondAttribute="bottom" constant="1" id="Si8-vR-6av"/>
+                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="trailing" secondItem="DA6-p6-c0t" secondAttribute="trailing" id="FQM-O7-yT2"/>
                                                 <constraint firstItem="DA6-p6-c0t" firstAttribute="top" secondItem="8Mm-xT-qBG" secondAttribute="topMargin" constant="-9" id="ZfA-SQ-NVg"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="top" secondItem="DA6-p6-c0t" secondAttribute="bottom" constant="2" id="ez1-cc-nep"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="trailing" secondItem="DA6-p6-c0t" secondAttribute="trailing" id="gr5-cK-Vkp"/>
+                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="leading" secondItem="8Mm-xT-qBG" secondAttribute="leadingMargin" constant="9" id="oUf-82-71m"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
