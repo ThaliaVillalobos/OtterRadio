@@ -15,6 +15,8 @@ class RequestViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var songTitle: UITextField!
     @IBOutlet weak var shoutOut: UITextView!
     @IBOutlet weak var characterCountLabel: UILabel!
+    let characterLimit = 140
+
     
     var phoneNumber = "8315823888"
     
@@ -42,16 +44,18 @@ class RequestViewController: UIViewController, UITextViewDelegate {
                 self.artistName.text = ""
                 self.songTitle.text = ""
                 self.shoutOut.text = ""
-                
+                self.alertMessage(title: "Success", message: "Request has been sent!")
+                self.characterCountLabel.text = String(self.characterLimit)
             } else if let error = error {
                 print("Problem saving message: \(error.localizedDescription)")
+                self.alertMessage(title: "Fail", message: "\(error.localizedDescription)")
+
             }
         }
-        performSegue(withIdentifier: "backHome", sender: nil)
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        let characterLimit = 140
+        
         let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
         characterCountLabel.text = String(characterLimit - newText.characters.count)
         return newText.characters.count < characterLimit
@@ -61,6 +65,16 @@ class RequestViewController: UIViewController, UITextViewDelegate {
         if let url = URL(string: "tel://\(phoneNumber)"){
             UIApplication.shared.openURL(url)
         }
+    }
+    
+    func alertMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) {(action) in }
+        
+        alertController.addAction(OKAction)
+        
+        present(alertController, animated: true) { }
     }
 
 }
