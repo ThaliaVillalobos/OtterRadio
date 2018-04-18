@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 
-class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate{
+class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate{
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var trayView: UIView!
@@ -50,7 +50,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         trayDesign()
         logoDesign()
 
-        fetchMessages()
+        //fetchMessages()
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70
@@ -60,19 +61,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         tableView.insertSubview(refreshControl, at: 0)
         
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
-        
 
-        //Todo: infinit scroll
-//        loadMoreData()
-//        let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
-//        loadingMoreView = InfiniteScrollActivityView(frame: frame)
-//        loadingMoreView!.isHidden = true
-//        tableView.addSubview(loadingMoreView!)
-//        
-//        var insets = tableView.contentInset
-//        insets.bottom += InfiniteScrollActivityView.defaultHeight
-//        tableView.contentInset = insets
-//        
+        loadMoreData()
+        let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        tableView.contentInset = insets
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -188,13 +187,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     func fetchMessages() {
         let query = PFQuery(className: "Message")
         query.order(byDescending: "_created_at")
-        query.limit = 10
+        query.limit = self.limit
         query.includeKey("user")
         
         query.findObjectsInBackground { ( messages: [PFObject]?, error: Error?) in
             if let mess = messages {
                 self.messages = mess
-                
                 self.tableView.reloadData()
             } else {
                 print("Error receiving the messages")
@@ -203,57 +201,43 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     }
 
     
+    //Ininit Scroll
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging) {
+                
+                isMoreDataLoading = true
+                
+                let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                loadMoreData()
+            }
+        }
+    }
     
-  //Todo: infinit scroll
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if (!isMoreDataLoading) {
-//            // Calculate the position of one screen length before the bottom of the results
-//            let scrollViewContentHeight = tableView.contentSize.height
-//            print(scrollViewContentHeight)
-//            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
-//            
-//            // When the user has scrolled past the threshold, start requesting
-//            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging) {
-//                
-//                isMoreDataLoading = true
-//                
-//                // Update position of loadingMoreView, and start loading indicator
-//                let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
-//                loadingMoreView?.frame = frame
-//                loadingMoreView!.startAnimating()
-//                
-//                // Code to load more results
-//                loadMoreData()
-//            }
-//        }
-//    }
-//    
-//    func loadMoreData() {
-//        let query = PFQuery(className: "Message")
-//        query.order(byDescending: "_created_at")
-//        query.includeKey("user")
-//        query.limit = limit //<--- change this line
-//        query.findObjectsInBackground { ( messages: [PFObject]?, error: Error?) in
-//            if let mess = messages {
-//                print(self.messages.count)
-//                self.messages.append(contentsOf: mess)
-//                print(self.messages.count)
-//                
-//                // Stop the loading indicator
-//                
-//                
-//                self.loadingMoreView!.stopAnimating()
-//                print("after load more stop")
-//                self.tableView.reloadData()
-//                print("after table reload data")
-//                self.isMoreDataLoading = false
-//                print(self.messages)
-//            } else {
-//                print("Error receiving the messages")
-//            }
-//        }
-//        
-//       self.limit = self.limit + 10
-//    }
+    //Retra
+    func loadMoreData() {
+        let query = PFQuery(className: "Message")
+        query.order(byDescending: "_created_at")
+        query.includeKey("user")
+        query.limit = limit
+        query.findObjectsInBackground { ( messages: [PFObject]?, error: Error?) in
+            if let mess = messages {
+                self.messages = mess
+                self.loadingMoreView!.stopAnimating()
+                self.tableView.reloadData()
+                self.isMoreDataLoading = false
+            } else {
+                print("Error receiving the messages")
+            }
+        }
+        
+       self.limit = self.limit + 10
+    }
   
 }
