@@ -9,22 +9,37 @@
 import UIKit
 import Parse
 
-class DisplayMusicViewController: UIViewController, UITableViewDataSource {
+class DisplayMusicViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate {
 
     @IBOutlet weak var musicTableView: UITableView!
     var music: [PFObject] = []
+    
+    var isMoreDataLoading = false
+    var loadingMoreView: InfiniteScrollActivityView?
+    var limit = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequest()
         musicTableView.dataSource = self
+        musicTableView.delegate = self
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(DisplayMusicViewController.didPullToRefresh(_:)), for: .valueChanged)
         musicTableView.insertSubview(refreshControl, at: 0)
         
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.fetchRequest), userInfo: nil, repeats: true)
-
+        
+        loadMoreData()
+        
+        let frame = CGRect(x: 0, y: musicTableView.contentSize.height, width: musicTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        musicTableView.addSubview(loadingMoreView!)
+        
+        var insets = musicTableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        musicTableView.contentInset = insets
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,20 +53,7 @@ class DisplayMusicViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = musicTableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
-        
-        let song = music[indexPath.row]
-        
-        cell.artistName.text = song["artist"] as? String
-        cell.songTitle.text = song["song"] as? String
-        cell.shoutOut.text = song["shoutOut"] as? String
-        if let user = song["user"] as? PFUser {
-            // User found! update username label with username
-            cell.userName.text = user.username
-        } else {
-            // No user found, set default username
-            cell.userName.text = "🤖"
-        }
-        
+        cell.song = music[indexPath.row]
         return cell
     }
     
@@ -70,6 +72,7 @@ class DisplayMusicViewController: UIViewController, UITableViewDataSource {
     func fetchRequest() {
         let query = PFQuery(className: "Request")
         query.order(byDescending: "_created_at")
+        query.limit = self.limit
         query.includeKey("user")
         
         query.findObjectsInBackground { ( music: [PFObject]?, error: Error?) in
@@ -81,8 +84,47 @@ class DisplayMusicViewController: UIViewController, UITableViewDataSource {
                 print("Error receiving the messages")
             }
         }
-
-        
     }
+    
+    //Ininit Scroll
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            let scrollViewContentHeight = musicTableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - musicTableView.bounds.size.height
+            
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && musicTableView.isDragging) {
+                
+                isMoreDataLoading = true
+                
+                let frame = CGRect(x: 0, y: musicTableView.contentSize.height, width: musicTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                loadMoreData()
+            }
+        }
+    }
+    
+    //
+    func loadMoreData() {
+        let query = PFQuery(className: "Request")
+        query.order(byDescending: "_created_at")
+        query.includeKey("user")
+        query.limit = limit
+        query.findObjectsInBackground { ( musics: [PFObject]?, error: Error?) in
+            if let song = musics {
+                self.music = song
+                self.loadingMoreView!.stopAnimating()
+                self.musicTableView.reloadData()
+                self.isMoreDataLoading = false
+            } else {
+                print("Error receiving the messages")
+            }
+        }
+        
+        self.limit = self.limit + 10
+    }
+    
+    
 
 }
