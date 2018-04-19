@@ -9,6 +9,19 @@
 import UIKit
 import Parse
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var usernameField: UITextField!
@@ -16,6 +29,7 @@ class LoginViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
     }
 
     override func didReceiveMemoryWarning() {

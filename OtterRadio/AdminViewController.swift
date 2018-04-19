@@ -30,6 +30,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
         //fetchName()
         searchForUser("user")
         userType = "user"

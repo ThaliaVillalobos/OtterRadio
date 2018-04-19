@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class LiveChatViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate  {
+class LiveChatViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var chatTableView: UITableView!
     @IBOutlet weak var messageField: UITextField!
@@ -27,9 +27,10 @@ class LiveChatViewController: UIViewController, UITableViewDataSource, UIScrollV
         super.viewDidLoad()
         chatTableView.dataSource = self
         chatTableView.delegate = self
+        messageField.delegate = self
         chatTableView.rowHeight = UITableViewAutomaticDimension
         chatTableView.estimatedRowHeight = 70
-        
+        self.hideKeyboardWhenTappedAround() 
         //fetchMessages()
         
         
@@ -148,7 +149,11 @@ class LiveChatViewController: UIViewController, UITableViewDataSource, UIScrollV
     }
     
 
-
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        self.messageField.resignFirstResponder()
+        return true
+    }
   
 
 }

@@ -17,7 +17,7 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
     let liveFeedURL = "http://qt.csumb.edu:1935/live/encoder3.sdp/playlist.m3u8"
     var canStream: Bool?
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
         liveFeedWebView.delegate = self
@@ -78,10 +78,6 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
             loadingActivityIndicator.stopAnimating()
             self.showAlert(title: "Error", message: "Live Feed is Unavailable at this time")
         }
-        
-        
-        
-        
         
     }
 

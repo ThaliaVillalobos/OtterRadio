@@ -24,6 +24,7 @@ class RequestViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         shoutOut.delegate = self
         shoutOut.isEditable = true
+        self.hideKeyboardWhenTappedAround() 
     }
 
     override func didReceiveMemoryWarning() {

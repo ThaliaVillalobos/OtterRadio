@@ -147,7 +147,7 @@
                                         <rect key="frame" x="8" y="24" width="299" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPG-n4-mjR">
                                         <rect key="frame" x="323" y="24" width="36" height="30"/>
@@ -250,6 +250,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="9hG-Dz-ktp" firstAttribute="top" secondItem="FaI-HZ-u0o" secondAttribute="bottom" id="3ER-Uc-7ng"/>
                             <constraint firstItem="EHW-QB-1j5" firstAttribute="leading" secondItem="abP-6f-5AO" secondAttribute="leading" constant="98" id="SMR-KM-eBf"/>
