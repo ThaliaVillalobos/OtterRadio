@@ -12,12 +12,10 @@ import AVFoundation
 class LiveViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var liveFeedWebView: UIWebView!
-    
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     
     let liveFeedURL = "http://qt.csumb.edu:1935/live/encoder3.sdp/playlist.m3u8"
     var canStream: Bool?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +96,7 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
         liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.textAlign = 'center';")
         liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementById('mapid').style.margin = 'auto';")
     }
+
     
     
     // Helper for showing an alert

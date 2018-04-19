@@ -9,26 +9,43 @@
 import UIKit
 import Parse
 
-class LiveChatViewController: UIViewController,UITableViewDataSource  {
+class LiveChatViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate  {
     
     @IBOutlet weak var chatTableView: UITableView!
     @IBOutlet weak var messageField: UITextField!
     var messages: [PFObject] = []
     
+    var isMoreDataLoading = false
+    var loadingMoreView: InfiniteScrollActivityView?
+    var limit = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        chatTableView.rowHeight = UITableViewAutomaticDimension
-        chatTableView.estimatedRowHeight = 50
-        
-        fetchMessages()
         chatTableView.dataSource = self
+        chatTableView.delegate = self
+        chatTableView.rowHeight = UITableViewAutomaticDimension
+        chatTableView.estimatedRowHeight = 70
+        
+        //fetchMessages()
+        
         
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(HomeViewController.didPullToRefresh(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(LiveChatViewController.didPullToRefresh(_:)), for: .valueChanged)
         chatTableView.insertSubview(refreshControl, at: 0)
         
         Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.fetchMessages), userInfo: nil, repeats: true)
+        
+        loadMoreData()
+        
+        let frame = CGRect(x: 0, y: chatTableView.contentSize.height, width: chatTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        chatTableView.addSubview(loadingMoreView!)
+        
+        var insets = chatTableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        chatTableView.contentInset = insets
+
 
     }
 
@@ -58,20 +75,7 @@ class LiveChatViewController: UIViewController,UITableViewDataSource  {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LiveChat", for: indexPath) as! LiveCell
-        
-        let mess = messages[indexPath.row]
-        
-        if let user = mess["user"] as? PFUser {
-            // User found! update username label with username
-            cell.name.text = user.username
-        } else {
-            // No user found, set default username
-            cell.name.text = "🤖"
-        }
-        
-        cell.message.text = mess["text"] as? String
-
-        
+        cell.chatMessage = messages[indexPath.row]
         return cell
     }
     
@@ -85,13 +89,12 @@ class LiveChatViewController: UIViewController,UITableViewDataSource  {
     func fetchMessages() {
         let query = PFQuery(className: "Message")
         query.order(byDescending: "_created_at")
+        query.limit = self.limit
         query.includeKey("user")
-        
         
         query.findObjectsInBackground { ( messages: [PFObject]?, error: Error?) in
             if let mess = messages {
                 self.messages = mess
-                
                 self.chatTableView.reloadData()
             } else {
                 print("Error receiving the messages")
@@ -99,6 +102,44 @@ class LiveChatViewController: UIViewController,UITableViewDataSource  {
         }
     }
     
+    //Ininit Scroll
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            let scrollViewContentHeight = chatTableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - chatTableView.bounds.size.height
+            
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && chatTableView.isDragging) {
+                
+                isMoreDataLoading = true
+                
+                let frame = CGRect(x: 0, y: chatTableView.contentSize.height, width: chatTableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                loadMoreData()
+            }
+        }
+    }
+    
+    //
+    func loadMoreData() {
+        let query = PFQuery(className: "Message")
+        query.order(byDescending: "_created_at")
+        query.includeKey("user")
+        query.limit = limit
+        query.findObjectsInBackground { ( messages: [PFObject]?, error: Error?) in
+            if let mess = messages {
+                self.messages = mess
+                self.loadingMoreView!.stopAnimating()
+                self.chatTableView.reloadData()
+                self.isMoreDataLoading = false
+            } else {
+                print("Error receiving the messages")
+            }
+        }
+        
+        self.limit = self.limit + 10
+    }
     
 
 

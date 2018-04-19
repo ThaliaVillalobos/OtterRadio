@@ -18,7 +18,6 @@ class RequestViewController: UIViewController, UITextViewDelegate {
     let characterLimit = 140
 
     
-    
     var phoneNumber = "8315823888"
     
     override func viewDidLoad() {
@@ -39,7 +38,6 @@ class RequestViewController: UIViewController, UITextViewDelegate {
         requestSong["shoutOut"] = shoutOut.text ?? ""
         requestSong["user"] = PFUser.current()
         
-        
         requestSong.saveInBackground { (success, error) in
             if success {
                 print("The request is saved!")
@@ -54,19 +52,14 @@ class RequestViewController: UIViewController, UITextViewDelegate {
 
             }
         }
-        
-        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         let newText = NSString(string: textView.text!).replacingCharacters(in: range, with: text)
-
         characterCountLabel.text = String(characterLimit - newText.characters.count)
-   
         return newText.characters.count < characterLimit
     }
-    
     
     @IBAction func makeCall(_ sender: UIButton) {
         if let url = URL(string: "tel://\(phoneNumber)"){
@@ -83,6 +76,5 @@ class RequestViewController: UIViewController, UITextViewDelegate {
         
         present(alertController, animated: true) { }
     }
-    
 
 }
