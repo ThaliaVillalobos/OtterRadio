@@ -17,15 +17,17 @@ class RadioAPI {
     var playerLayer:AVPlayerLayer
     let radioURL = "http://icecast.csumb.edu:8000/ottermedia"
     var isPlaying:Bool?
+    var isStreaming: Bool?
 
     init() {
-        
-        
+
         let url = URL(string: radioURL)
         if AVAsset(url: url!).isPlayable {
             print("The link is working")
+            isStreaming = true
         }else{
             print("Error: Radio link is down")
+            isStreaming = false
         }
         playerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
@@ -70,12 +72,17 @@ class RadioAPI {
         let url = URL(string: radioURL)
         if AVAsset(url: url!).isPlayable {
             print("The link is working")
+            isStreaming = true
         }else{
             print("Error: Radio link is down")
+            isStreaming = false
         }
         playerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
 
+    }
+    func getIsStreaming() -> Bool {
+        return isStreaming!
     }
     
     func getAVPlayerLayer() -> AVPlayerLayer {

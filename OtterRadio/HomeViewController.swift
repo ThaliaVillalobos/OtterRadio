@@ -69,6 +69,11 @@ class HomeViewController: UIViewController, UITableViewDataSource {
     
     //Play Button
     @IBAction func didTapPlayButton(_ sender: UIButton) {
+        if !(otterRadio.isStreaming!) {
+            self.alertMessage(title: "Error Playing!", message: "The otter radio might be down! Try again later...")
+
+            return
+        }
         if !(otterRadio.isPlaying!)
         {
             otterRadio.playRadio()
@@ -77,6 +82,16 @@ class HomeViewController: UIViewController, UITableViewDataSource {
             otterRadio.stopRadio()
             playButton.setImage(UIImage(named: "play.png"), for: UIControlState.normal)
         }
+    }
+    
+    func alertMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) {(action) in }
+        
+        alertController.addAction(OKAction)
+        
+        present(alertController, animated: true) { }
     }
 
     //Tary
