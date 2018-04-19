@@ -19,7 +19,14 @@ class RadioAPI {
     var isPlaying:Bool?
 
     init() {
+        
+        
         let url = URL(string: radioURL)
+        if AVAsset(url: url!).isPlayable {
+            print("The link is working")
+        }else{
+            print("Error: Radio link is down")
+        }
         playerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
         
@@ -45,7 +52,7 @@ class RadioAPI {
     
     private func setupCommandCenter() {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: "Otter Radio"]
-        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo?.updateValue((player?.rate)!, forKey: MPNowPlayingInfoPropertyPlaybackRate)
         let commandCenter = MPRemoteCommandCenter.shared()
         commandCenter.playCommand.isEnabled = true
         commandCenter.pauseCommand.isEnabled = true
@@ -61,6 +68,11 @@ class RadioAPI {
     
     func initPlayer() {
         let url = URL(string: radioURL)
+        if AVAsset(url: url!).isPlayable {
+            print("The link is working")
+        }else{
+            print("Error: Radio link is down")
+        }
         playerItem = AVPlayerItem(url: url!)
         player = AVPlayer(playerItem: playerItem)
 
@@ -86,13 +98,17 @@ class RadioAPI {
             player!.play()
         }
         isPlaying = true
+        MPNowPlayingInfoCenter.default().nowPlayingInfo?.updateValue((player?.rate)!, forKey: MPNowPlayingInfoPropertyPlaybackRate)
+
     }
     
     func stopRadio() {
         if player != nil {
             player!.pause()
+            MPNowPlayingInfoCenter.default().nowPlayingInfo?.updateValue((player?.rate)!, forKey: MPNowPlayingInfoPropertyPlaybackRate)
             player = nil
         }
         isPlaying = false
+
     }
 }
