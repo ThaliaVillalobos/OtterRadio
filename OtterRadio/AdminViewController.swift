@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate {
+class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarDelegate, UITableViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -23,6 +23,10 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     private var selectedUser: PFObject! = nil
     private var selectedTableViewCell: UITableViewCell!
     private var userType: String!
+    
+    var isMoreDataLoading = false
+    var loadingMoreView: InfiniteScrollActivityView?
+    var limit = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +62,16 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
             print("Canceled")
         }))
         
+        loadMoreData()
+        
+        let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+        loadingMoreView = InfiniteScrollActivityView(frame: frame)
+        loadingMoreView!.isHidden = true
+        tableView.addSubview(loadingMoreView!)
+        
+        var insets = tableView.contentInset
+        insets.bottom += InfiniteScrollActivityView.defaultHeight
+        tableView.contentInset = insets
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,19 +111,23 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     }
     
     //Fetching Names
-    func fetchName() {
+    func loadMoreData() {
         let query = PFQuery(className: "_User")
         query.includeKey("username")
         query.includeKey("type")
-        
+        query.limit = limit
+        query.whereKey("type", equalTo: userType)
         query.findObjectsInBackground { ( users: [PFObject]?, error: Error?) in
             if let userName = users {
                 self.users = userName
+                self.loadingMoreView!.stopAnimating()
                 self.tableView.reloadData()
+                self.isMoreDataLoading = false
             } else {
-                print("Error receiving the messages")
+                print("Error")
             }
         }
+        self.limit = self.limit + 10
     }
     
     //Search Bar
@@ -196,4 +214,26 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
             }
         }
     }
+    
+    
+    //Ininit Scroll
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (!isMoreDataLoading) {
+            let scrollViewContentHeight = tableView.contentSize.height
+            let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+            
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.isDragging) {
+                
+                isMoreDataLoading = true
+                
+                let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
+                
+                loadingMoreView?.frame = frame
+                loadingMoreView!.startAnimating()
+                loadMoreData()
+            }
+        }
+    }
+    
+    
 }
