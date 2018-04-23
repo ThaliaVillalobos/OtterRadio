@@ -308,11 +308,6 @@
                                     <constraint firstAttribute="height" constant="241" id="6ot-j9-HRM"/>
                                 </constraints>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1i7-Mr-5z5">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -323,7 +318,6 @@
                     <tabBarItem key="tabBarItem" title="" image="video-camera" selectedImage="video-camera" id="ae8-Db-ryv"/>
                     <connections>
                         <outlet property="liveFeedWebView" destination="ljF-VS-X7N" id="gTq-Mz-dco"/>
-                        <outlet property="loadingActivityIndicator" destination="1i7-Mr-5z5" id="xUN-1r-e3A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WoT-Ql-aqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
