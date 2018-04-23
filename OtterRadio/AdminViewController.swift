@@ -30,6 +30,9 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.hideKeyboardWhenTappedAround() 
+       
         userType = "user"
         
         tableView.delegate = self

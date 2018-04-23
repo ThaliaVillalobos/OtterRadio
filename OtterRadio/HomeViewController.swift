@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 
-class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate{
+class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var trayView: UIView!
@@ -49,6 +49,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 70
+        
+        chatMessageField.delegate = self
+        self.hideKeyboardWhenTappedAround()
+        
         
         checkUser()
         trayDesign()
@@ -250,6 +254,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         }
         
        self.limit = self.limit + 10
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.chatMessageField.resignFirstResponder()
+        return true
     }
   
 }

@@ -7,40 +7,28 @@
 //
 
 import UIKit
-import AVFoundation
+
 
 class LiveViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var liveFeedWebView: UIWebView!
-    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
+   
     
     let liveFeedURL = "http://qt.csumb.edu:1935/live/encoder3.sdp/playlist.m3u8"
-    var canStream: Bool?
+
+    var streamOnce: Bool?
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
-        liveFeedWebView.delegate = self
-        loadingActivityIndicator.startAnimating()
-        
+        self.liveFeedWebView.delegate = self
         
         let url = URL(string: liveFeedURL)
-        
-        if AVAsset(url: url!).isReadable{
+        //
+        if UIApplication.shared.canOpenURL(url!){
             
-            print("url works!")
-            self.canStream = true
-        }
-        else{
+            print("URL Works")
             
-            print("URL fails")
-            self.canStream = false
-        }
-        
-        
-        if canStream!{
-            
-            let url = URL(string: liveFeedURL)
             if let unwrapURL = url{
                 
                 let request = URLRequest(url: unwrapURL)
@@ -55,7 +43,8 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
                         DispatchQueue.main.async {
                             
                             self.liveFeedWebView.loadRequest(request)
-                            self.loadingActivityIndicator.stopAnimating()
+                            
+                            self.streamOnce = true
                         }
                     }
                     else{
@@ -64,25 +53,23 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
                         
                         DispatchQueue.main.async {
                             
-                            self.showAlert(title: "Error", message: String(describing: error))
+                            
+                            self.showAlert(title: "Error", message: "Live Feed is Unavailable at this time")
                         }
                     }
                 })
                 
                 task.resume()
             }
-        }
             
+            
+        }
         else{
             
-            loadingActivityIndicator.stopAnimating()
+            print("URL does not work")
             self.showAlert(title: "Error", message: "Live Feed is Unavailable at this time")
         }
-        
-        
-        
-        
-        
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,12 +77,24 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
+    func webViewDidStartLoad(_ webView: UIWebView) {
         
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+        print("MAde it to finish \n")
         liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.verticalAlign = 'middle';")
         liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].style.textAlign = 'center';")
         liveFeedWebView.stringByEvaluatingJavaScript(from: "document.getElementById('mapid').style.margin = 'auto';")
+        
+        
+        //self.loadingActivityIndicator.stopAnimating()
+        print("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+
     }
+    
+    
 
     
     
