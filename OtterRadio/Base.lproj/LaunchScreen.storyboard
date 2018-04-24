@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1314" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,32 +19,21 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otterRadioLogo" translatesAutoresizingMaskIntoConstraints="NO" id="KP7-vP-ajO">
-                                <rect key="frame" x="25" y="169" width="324" height="329"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="324" id="JFH-YV-nlc"/>
-                                    <constraint firstAttribute="height" constant="329" id="yUB-PY-T2X"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splah_Otter" translatesAutoresizingMaskIntoConstraints="NO" id="KP7-vP-ajO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Otter Radio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PdJ-8q-JPe">
-                                <rect key="frame" x="100" y="490" width="174" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="174" id="rhe-Mi-LVd"/>
-                                    <constraint firstAttribute="height" constant="40" id="rkR-V2-fky"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KP7-vP-ajO" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dsq-DT-QKK"/>
-                            <constraint firstItem="KP7-vP-ajO" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e18-N8-fCk"/>
-                            <constraint firstItem="PdJ-8q-JPe" firstAttribute="top" secondItem="KP7-vP-ajO" secondAttribute="bottom" constant="-8" id="xO6-E3-8Il"/>
-                            <constraint firstItem="PdJ-8q-JPe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="y4j-4j-ann"/>
+                            <constraint firstAttribute="trailing" secondItem="KP7-vP-ajO" secondAttribute="trailing" id="HwR-Fk-Lbn"/>
+                            <constraint firstItem="KP7-vP-ajO" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="M50-cN-dJg"/>
+                            <constraint firstItem="KP7-vP-ajO" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="WiF-RZ-zDy"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="KP7-vP-ajO" secondAttribute="bottom" id="hcp-iC-jsN"/>
+                            <constraint firstItem="KP7-vP-ajO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="tY1-vK-qiu"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="KP7-vP-ajO" secondAttribute="bottom" id="xDs-Fc-vE5"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -53,6 +43,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="otterRadioLogo" width="394" height="421"/>
+        <image name="Splah_Otter" width="3000" height="4500"/>
     </resources>
 </document>
