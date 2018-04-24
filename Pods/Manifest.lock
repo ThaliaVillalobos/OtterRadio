@@ -4,14 +4,17 @@ PODS:
     - Parse/Core (= 1.17.1)
   - Parse/Core (1.17.1):
     - Bolts/Tasks (~> 1.9)
+  - Reachability (3.2)
 
 DEPENDENCIES:
   - Parse
+  - Reachability
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: 8720af53b65f34d1c46d986acacaeb6a5b13c8bf
+PODFILE CHECKSUM: bd42e6cef551af148e7ea79da06d079e5ad9b6c7
 
 COCOAPODS: 1.4.0

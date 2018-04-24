@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Reachability
 
 
 class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewDelegate, UITableViewDelegate, UITextFieldDelegate{
@@ -53,7 +54,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         chatMessageField.delegate = self
         self.hideKeyboardWhenTappedAround()
         
-        
         checkUser()
         trayDesign()
         //logoDesign()
@@ -81,6 +81,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+
     
     
     //Checking to see if a user is a guest
