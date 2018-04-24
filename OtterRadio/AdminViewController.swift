@@ -30,39 +30,18 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.hideKeyboardWhenTappedAround() 
-        //fetchName()
-        searchForUser("user")
+       
         userType = "user"
         
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
         
-        confirmHostAlert = UIAlertController(title: "Promote User", message: "Turn user into radio host?", preferredStyle: UIAlertControllerStyle.alert)
-        
-        confirmHostAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            self.turnUserToHost()
-        }))
-        
-        confirmHostAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.selectedUser = nil
-            self.selectedTableViewCell = nil
-            print("Canceled")
-        }))
-        //-----------
-        confirmUserAlert = UIAlertController(title: "Revoke Host", message: "Turn host into regular user?", preferredStyle: UIAlertControllerStyle.alert)
-        
-        confirmUserAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            self.turnHostToUser()
-        }))
-        
-        confirmUserAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.selectedUser = nil
-            self.selectedTableViewCell = nil
-            print("Canceled")
-        }))
-        
+        searchForUser("user")
+        setupAlertPromoteUser()
+        setupAlertRevokeHost()
         loadMoreData()
         
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
@@ -73,6 +52,34 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
         var insets = tableView.contentInset
         insets.bottom += InfiniteScrollActivityView.defaultHeight
         tableView.contentInset = insets
+    }
+    
+    // Adding the alert view to promote user to host.
+    private func setupAlertPromoteUser() {
+        confirmHostAlert = UIAlertController(title: "Promote User", message: "Turn user into radio host?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        confirmHostAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.changeUserType("makeHost")
+        }))
+        
+        confirmHostAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.selectedUser = nil
+            self.selectedTableViewCell = nil
+        }))
+    }
+    
+    // Adding the alert view to revoke host rights.
+    private func setupAlertRevokeHost() {
+        confirmUserAlert = UIAlertController(title: "Revoke Host", message: "Turn host into regular user?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        confirmUserAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            self.changeUserType("makeUser")
+        }))
+        
+        confirmUserAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.selectedUser = nil
+            self.selectedTableViewCell = nil
+        }))
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,7 +95,6 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
         
         let user = users[indexPath.row]
         cell.userNameLabel.text = user["username"] as? String
-        //print(user["type"] as? String ?? "No user type")
         if (user["type"] as! String) == "host" {
             cell.accessoryType = UITableViewCellAccessoryType.checkmark
         }else{
@@ -135,10 +141,8 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
         let user = PFQuery(className: "_User")
         
-        if searchText != nil{
-            user.whereKey("username", matchesRegex: "(?i)\(searchText)")
-            user.whereKey("type", equalTo: self.userType)
-        }
+        user.whereKey("username", matchesRegex: "(?i)\(searchText)")
+        user.whereKey("type", equalTo: self.userType)
         user.findObjectsInBackground { (results, error) -> Void in
             self.users = (results)!
             self.tableView.reloadData()
@@ -156,7 +160,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
                 self.users = userName
                 self.tableView.reloadData()
             } else {
-                print("Error receiving the messages")
+                print("Error receiving users")
             }
         }
         
@@ -180,40 +184,30 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
                 break
         }
     }
-    private func turnUserToHost() {
-        PFCloud.callFunction(inBackground: "makeHost", withParameters: ["username": self.selectedUser["username"], "id": self.selectedUser.objectId as Any]) { (response, error) in
+    
+    private func changeUserType(_ cloudFunction: String) {
+        let parameterKey = "username"
+        let userIdKey = "id"
+        
+        PFCloud.callFunction(inBackground: cloudFunction, withParameters: [parameterKey: self.selectedUser[parameterKey], userIdKey: self.selectedUser.objectId!]) { (response, error) in
             if error == nil {
                 // The function was successfully executed and you have a correct // response object
-                print(response as? String ?? "Response = nil")
-                self.selectedTableViewCell.accessoryType = UITableViewCellAccessoryType.checkmark
-                
-                self.selectedUser = nil
-                self.selectedTableViewCell = nil
-            } else {
-                // The function returned a error
-                print("There was an error")
-                self.selectedUser = nil
-                self.selectedTableViewCell = nil
-            }
-        }
-    }
+                if self.selectedTableViewCell.accessoryType == UITableViewCellAccessoryType.none {
+                    self.selectedTableViewCell.accessoryType = UITableViewCellAccessoryType.checkmark
+                }else {
+                    self.selectedTableViewCell.accessoryType = UITableViewCellAccessoryType.none
+                }
 
-    private func turnHostToUser() {
-        PFCloud.callFunction(inBackground: "makeUser", withParameters: ["username": self.selectedUser["username"], "id": self.selectedUser.objectId!]) { (response, error) in
-            if error == nil {
-                // The function was successfully executed and you have a correct // response object
-                print(response as? String ?? "Response = nil")
-                self.selectedTableViewCell.accessoryType = UITableViewCellAccessoryType.none
-                
                 self.selectedUser = nil
                 self.selectedTableViewCell = nil
             } else {
                 // The function returned a error
-                print("There was an error")
+                print("There was an error turning host into user.")
                 self.selectedUser = nil
                 self.selectedTableViewCell = nil
             }
         }
+        
     }
     
     
