@@ -168,7 +168,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GXs-ry-xrZ" id="TKa-q0-sVW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ys-qh-Pgo">
@@ -184,7 +184,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwF-qO-9L7">
-                                                            <rect key="frame" x="379" y="0.0" width="27" height="21"/>
+                                                            <rect key="frame" x="340" y="0.0" width="27" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -471,7 +471,7 @@
                                         <rect key="frame" x="0.0" y="28" width="355" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TJ4-Rg-XGC" id="JYU-MQ-61x">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhA-gp-inP">
@@ -606,8 +606,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbl-Tl-bU2">
                                 <rect key="frame" x="304" y="108" width="46" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Send"/>
+                                <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="sendButton:" destination="xCE-cZ-0lV" eventType="touchUpInside" id="T3o-kU-U5w"/>
                                 </connections>
@@ -667,14 +669,18 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Live Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ni6-BR-4Sl">
-                                <rect key="frame" x="140" y="42" width="95" height="34"/>
+                                <rect key="frame" x="145" y="63" width="124" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="otterFace" translatesAutoresizingMaskIntoConstraints="NO" id="aLb-Bo-yOY">
+                                <rect key="frame" x="15" y="22" width="131" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.08376678079366684" green="0.35163289308547974" blue="0.44766801595687866" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" image="live-chat" selectedImage="live-chat" id="acf-ql-A3k"/>
                     <connections>
@@ -714,7 +720,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NEq-Rg-SYD" id="yci-gN-Tt9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="151.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPW-gN-UJc">
@@ -852,6 +858,7 @@
         <image name="headphones (4)" width="32" height="32"/>
         <image name="live-chat" width="32" height="32"/>
         <image name="music-player" width="32" height="32"/>
+        <image name="otterFace" width="2286" height="1226"/>
         <image name="otterRadioLogo" width="394" height="421"/>
         <image name="play" width="136" height="137"/>
         <image name="video-camera" width="32" height="32"/>
