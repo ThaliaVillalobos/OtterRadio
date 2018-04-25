@@ -14,6 +14,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var logoutButton: UIButton!
     
     var users: [PFObject] = []
     var filteredData: [String]!
@@ -30,6 +31,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        layout()
 
         self.hideKeyboardWhenTappedAround() 
        
@@ -230,5 +232,8 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
         }
     }
     
+    func layout(){
+        logoutButton.titleLabel?.font = UIFont.myItalicSystemFont(ofSize: 15)
+    }
     
 }
