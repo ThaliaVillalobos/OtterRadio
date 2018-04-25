@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1314" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G1114" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -596,17 +596,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qq0-yw-Dcn">
-                                <rect key="frame" x="16" y="112" width="260" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type in a message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qq0-yw-Dcn">
+                                <rect key="frame" x="16" y="112" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbl-Tl-bU2">
-                                <rect key="frame" x="304" y="108" width="46" height="34"/>
+                                <rect key="frame" x="311" y="109" width="47" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="18"/>
                                 <state key="normal" title="Send">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -615,50 +615,39 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="104" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WeN-YG-iho">
-                                <rect key="frame" x="0.0" y="150" width="375" height="468"/>
+                                <rect key="frame" x="15" y="150" width="344" height="468"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LiveChat" rowHeight="104" id="y6B-H4-5y2" customClass="LiveCell" customModule="OtterRadio" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                        <rect key="frame" x="0.0" y="28" width="344" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y6B-H4-5y2" id="8Mm-xT-qBG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="103.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="344" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA6-p6-c0t">
-                                                    <rect key="frame" x="17" y="-1" width="350" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA6-p6-c0t">
+                                                    <rect key="frame" x="15" y="9" width="94" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="17"/>
+                                                    <color key="textColor" red="0.069555766880512238" green="0.33970189094543457" blue="0.20774355530738831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGe-vE-poT">
+                                                    <rect key="frame" x="297" y="8" width="26" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ic-9P-2fm">
-                                                    <rect key="frame" x="17" y="22" width="350" height="64"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGe-vE-poT">
-                                                    <rect key="frame" x="326" y="0.0" width="26" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="HjP-hF-YDl"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ic-9P-2fm">
+                                                    <rect key="frame" x="15" y="38" width="69.5" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="6ic-9P-2fm" secondAttribute="bottom" constant="9.5" id="3EG-0Z-wNz"/>
-                                                <constraint firstItem="FGe-vE-poT" firstAttribute="top" secondItem="8Mm-xT-qBG" secondAttribute="top" id="7Ge-GT-0js"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="top" secondItem="FGe-vE-poT" secondAttribute="bottom" constant="1" id="89y-r7-xCd"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="leading" secondItem="DA6-p6-c0t" secondAttribute="leading" id="9lv-lP-xob"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="trailing" secondItem="8Mm-xT-qBG" secondAttribute="trailingMargin" id="ADI-sb-jm5"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="FGe-vE-poT" secondAttribute="trailing" constant="15" id="FJ5-PP-9fj"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="trailing" secondItem="DA6-p6-c0t" secondAttribute="trailing" id="FQM-O7-yT2"/>
-                                                <constraint firstItem="DA6-p6-c0t" firstAttribute="top" secondItem="8Mm-xT-qBG" secondAttribute="topMargin" constant="-9" id="ZfA-SQ-NVg"/>
-                                                <constraint firstItem="6ic-9P-2fm" firstAttribute="leading" secondItem="8Mm-xT-qBG" secondAttribute="leadingMargin" constant="9" id="oUf-82-71m"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="message" destination="6ic-9P-2fm" id="qY6-ql-7cV"/>
@@ -669,9 +658,9 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Live Chat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ni6-BR-4Sl">
-                                <rect key="frame" x="145" y="63" width="124" height="29"/>
+                                <rect key="frame" x="143" y="63" width="129" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -704,76 +693,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Requested Music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZ6-ud-tcj">
-                                <rect key="frame" x="112" y="64" width="151" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="152" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7wU-cg-4Zo">
-                                <rect key="frame" x="0.0" y="128" width="375" height="490"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="141" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7wU-cg-4Zo">
+                                <rect key="frame" x="16" y="218" width="343" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="152" id="NEq-Rg-SYD" customClass="MusicCell" customModule="OtterRadio" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="152"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MusicCell" rowHeight="141" id="NEq-Rg-SYD" customClass="MusicCell" customModule="OtterRadio" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NEq-Rg-SYD" id="yci-gN-Tt9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="141"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPW-gN-UJc">
-                                                    <rect key="frame" x="17" y="8" width="350" height="21"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="11" y="9.5" width="359" height="19.5"/>
+                                                    <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="17"/>
+                                                    <color key="textColor" red="0.03985961526632309" green="0.19718241691589355" blue="0.33006590604782104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mus-C8-lXH">
-                                                    <rect key="frame" x="17" y="37" width="100" height="21"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="11" y="37" width="109" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                                    <color key="textColor" red="0.069555766879999995" green="0.33970189090000003" blue="0.20774355529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5y-BK-Jm0">
-                                                    <rect key="frame" x="125" y="36" width="242" height="20.5"/>
+                                                    <rect key="frame" x="127" y="36" width="242" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="242" id="kap-L7-DJV"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Tittle: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGT-TM-dDU">
-                                                    <rect key="frame" x="17" y="66" width="92" height="21"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="11" y="65" width="97.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                                    <color key="textColor" red="0.069555766879999995" green="0.33970189090000003" blue="0.20774355529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlN-cB-UsN">
-                                                    <rect key="frame" x="125" y="65.5" width="242" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="128" y="65" width="242" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shout-out:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiw-e2-RB2">
-                                                    <rect key="frame" x="17" y="95" width="83" height="21"/>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="11" y="93" width="92" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                                    <color key="textColor" red="0.069555766879999995" green="0.33970189090000003" blue="0.20774355529999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Maf-w7-lv8">
-                                                    <rect key="frame" x="125" y="93" width="242" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="128" y="92" width="242" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A62-U9-DAu">
-                                                    <rect key="frame" x="315" y="7" width="31" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A62-U9-DAu">
+                                                    <rect key="frame" x="294" y="7" width="31.5" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="Vg8-Si-2Ix"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -781,12 +763,12 @@
                                             <constraints>
                                                 <constraint firstItem="mus-C8-lXH" firstAttribute="leading" secondItem="pPW-gN-UJc" secondAttribute="leading" id="01U-ii-5YZ"/>
                                                 <constraint firstItem="tiw-e2-RB2" firstAttribute="top" secondItem="sGT-TM-dDU" secondAttribute="bottom" constant="8" symbolic="YES" id="1Ve-k0-mcZ"/>
-                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="leading" secondItem="Maf-w7-lv8" secondAttribute="leading" id="4WV-Gn-vjW"/>
-                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="leading" secondItem="mus-C8-lXH" secondAttribute="trailing" constant="8" symbolic="YES" id="523-gd-IaT"/>
+                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="leading" secondItem="Maf-w7-lv8" secondAttribute="leading" constant="-1" id="4WV-Gn-vjW"/>
+                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="leading" secondItem="mus-C8-lXH" secondAttribute="trailing" constant="7" id="523-gd-IaT"/>
                                                 <constraint firstItem="A5y-BK-Jm0" firstAttribute="top" secondItem="A62-U9-DAu" secondAttribute="bottom" constant="8" symbolic="YES" id="5w6-se-Ddl"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="A62-U9-DAu" secondAttribute="trailing" constant="21" id="6T7-tf-JTe"/>
-                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="trailing" secondItem="pPW-gN-UJc" secondAttribute="trailing" id="BMY-Q7-2IY"/>
-                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="trailing" secondItem="Maf-w7-lv8" secondAttribute="trailing" id="DIi-lO-Ibk"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="A62-U9-DAu" secondAttribute="trailing" constant="8" id="6T7-tf-JTe"/>
+                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="trailing" secondItem="pPW-gN-UJc" secondAttribute="trailing" constant="-1" id="BMY-Q7-2IY"/>
+                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="trailing" secondItem="Maf-w7-lv8" secondAttribute="trailing" constant="-1" id="DIi-lO-Ibk"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="A62-U9-DAu" secondAttribute="trailing" constant="21" id="F5A-Xd-M8K"/>
                                                 <constraint firstItem="mus-C8-lXH" firstAttribute="top" secondItem="pPW-gN-UJc" secondAttribute="bottom" constant="8" symbolic="YES" id="FEA-yr-7wL"/>
                                                 <constraint firstItem="Maf-w7-lv8" firstAttribute="top" secondItem="TlN-cB-UsN" secondAttribute="bottom" constant="7" id="HXj-Mp-DfJ"/>
@@ -794,14 +776,15 @@
                                                 <constraint firstItem="sGT-TM-dDU" firstAttribute="top" secondItem="mus-C8-lXH" secondAttribute="bottom" constant="8" symbolic="YES" id="RvZ-bJ-2bw"/>
                                                 <constraint firstItem="Maf-w7-lv8" firstAttribute="leading" secondItem="tiw-e2-RB2" secondAttribute="trailing" constant="25" id="UY9-w9-BtY"/>
                                                 <constraint firstItem="mus-C8-lXH" firstAttribute="leading" secondItem="sGT-TM-dDU" secondAttribute="leading" id="Zob-7J-gK7"/>
-                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="trailing" secondItem="yci-gN-Tt9" secondAttribute="trailingMargin" id="hMr-04-Uxd"/>
-                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="trailing" secondItem="TlN-cB-UsN" secondAttribute="trailing" id="i6G-of-id6"/>
-                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="leading" secondItem="TlN-cB-UsN" secondAttribute="leading" id="l1k-nb-Gk7"/>
+                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="trailing" secondItem="yci-gN-Tt9" secondAttribute="trailingMargin" constant="34" id="hMr-04-Uxd"/>
+                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="trailing" secondItem="TlN-cB-UsN" secondAttribute="trailing" constant="-1" id="i6G-of-id6"/>
+                                                <constraint firstItem="A5y-BK-Jm0" firstAttribute="leading" secondItem="TlN-cB-UsN" secondAttribute="leading" constant="-1" id="l1k-nb-Gk7"/>
                                                 <constraint firstItem="A62-U9-DAu" firstAttribute="top" secondItem="yci-gN-Tt9" secondAttribute="topMargin" constant="-1" id="rIa-ZP-K7O"/>
                                                 <constraint firstItem="mus-C8-lXH" firstAttribute="leading" secondItem="tiw-e2-RB2" secondAttribute="leading" id="s0X-iq-JEi"/>
                                                 <constraint firstItem="TlN-cB-UsN" firstAttribute="top" secondItem="A5y-BK-Jm0" secondAttribute="bottom" constant="9" id="us6-YE-rNv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.85529983043670654" green="0.84425169229507446" blue="0.77741515636444092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="artistName" destination="A5y-BK-Jm0" id="9Ei-6P-M3A"/>
                                             <outlet property="shoutOut" destination="Maf-w7-lv8" id="lgX-XG-BEZ"/>
@@ -815,14 +798,27 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlL-RQ-EYF">
                                 <rect key="frame" x="16" y="28" width="54" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Logout"/>
+                                <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapLogOutButton:" destination="Osa-2C-0TT" eventType="touchUpInside" id="CP0-5r-Q5p"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Otter_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-xu-z4k">
+                                <rect key="frame" x="77" y="10" width="231" height="168"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Requested Music" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZ6-ud-tcj">
+                                <rect key="frame" x="73" y="165" width="229" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.57470661401748657" green="0.49610817432403564" blue="0.33126905560493469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="music-player" selectedImage="music-player" id="dZU-vp-5uF"/>
                     <connections>
@@ -854,6 +850,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Otter_Icon" width="3000" height="3000"/>
         <image name="down_arrow" width="20" height="14"/>
         <image name="headphones (4)" width="32" height="32"/>
         <image name="live-chat" width="32" height="32"/>

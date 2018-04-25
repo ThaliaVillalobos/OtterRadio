@@ -95,6 +95,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     
     //The style of the Tray view
     func trayDesign(){
+        print("sreen size ", UIScreen.main.bounds.height)
         trayDownOffset = 260
         trayUp = trayView.center
         trayDown = CGPoint(x: trayView.center.x ,y: trayView.center.y + trayDownOffset)
