@@ -21,6 +21,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splah_Otter" translatesAutoresizingMaskIntoConstraints="NO" id="KP7-vP-ajO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -35,6 +36,7 @@
                             <constraint firstItem="KP7-vP-ajO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="tY1-vK-qiu"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="KP7-vP-ajO" secondAttribute="bottom" id="xDs-Fc-vE5"/>
                         </constraints>
+
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,7 +44,9 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+
     <resources>
         <image name="Splah_Otter" width="3000" height="4500"/>
     </resources>
+
 </document>

@@ -78,15 +78,15 @@
                                     <action selector="onSignGuest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mBg-Y6-zKq"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="otterRadioLogo" translatesAutoresizingMaskIntoConstraints="NO" id="okQ-AZ-bg6">
-                                <rect key="frame" x="92.5" y="28" width="190" height="207"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="okQ-AZ-bg6">
+                                <rect key="frame" x="24" y="46" width="327" height="153"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="190" id="Kyh-7m-ghk"/>
-                                    <constraint firstAttribute="height" constant="207" id="qMS-pe-oJE"/>
+                                    <constraint firstAttribute="width" constant="327" id="Kyh-7m-ghk"/>
+                                    <constraint firstAttribute="height" constant="153" id="qMS-pe-oJE"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="okQ-AZ-bg6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="14J-f6-x2z"/>
                             <constraint firstItem="Sgh-xM-f30" firstAttribute="top" secondItem="4cG-NP-goR" secondAttribute="bottom" constant="32" id="1Uq-HJ-ROW"/>
@@ -97,9 +97,9 @@
                             <constraint firstItem="FgA-Z6-KqM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="48" id="RYO-IS-NoH"/>
                             <constraint firstAttribute="trailing" secondItem="Sgh-xM-f30" secondAttribute="trailing" constant="48" id="V9D-H6-Ar9"/>
                             <constraint firstItem="4cG-NP-goR" firstAttribute="top" secondItem="81i-mQ-kP0" secondAttribute="bottom" constant="16" id="YbZ-6L-ze2"/>
-                            <constraint firstItem="81i-mQ-kP0" firstAttribute="top" secondItem="okQ-AZ-bg6" secondAttribute="bottom" constant="8" id="a86-BD-SJK"/>
+                            <constraint firstItem="81i-mQ-kP0" firstAttribute="top" secondItem="okQ-AZ-bg6" secondAttribute="bottom" constant="44" id="a86-BD-SJK"/>
                             <constraint firstItem="Jdd-LD-FS1" firstAttribute="top" secondItem="Sgh-xM-f30" secondAttribute="bottom" constant="32" id="alw-94-70D"/>
-                            <constraint firstItem="okQ-AZ-bg6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="dOp-1Z-Kw9"/>
+                            <constraint firstItem="okQ-AZ-bg6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="26" id="dOp-1Z-Kw9"/>
                             <constraint firstItem="FgA-Z6-KqM" firstAttribute="top" secondItem="4cG-NP-goR" secondAttribute="bottom" constant="32" id="f1p-hw-OBi"/>
                             <constraint firstAttribute="trailing" secondItem="81i-mQ-kP0" secondAttribute="trailing" constant="48" id="gxn-PG-sEp"/>
                             <constraint firstItem="Jdd-LD-FS1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k4X-JY-oxE"/>
@@ -138,7 +138,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FaI-HZ-u0o">
-                                <rect key="frame" x="0.0" y="313" width="375" height="354"/>
+                                <rect key="frame" x="0.0" y="313" width="375" height="305"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="down_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="NFN-VG-TdG">
                                         <rect key="frame" x="178" y="4" width="19" height="20"/>
@@ -150,18 +150,21 @@
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPG-n4-mjR">
-                                        <rect key="frame" x="323" y="24" width="36" height="30"/>
+                                        <rect key="frame" x="322" y="23" width="38" height="32"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="bnw-9N-ocx"/>
-                                            <constraint firstAttribute="width" constant="36" id="rdN-xr-1t2"/>
+                                            <constraint firstAttribute="height" constant="32" id="bnw-9N-ocx"/>
+                                            <constraint firstAttribute="width" constant="38" id="rdN-xr-1t2"/>
                                         </constraints>
-                                        <state key="normal" title="Send"/>
+                                        <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="sendButton:" destination="59a-Eg-x9q" eventType="touchUpInside" id="gQn-ds-uNA"/>
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KdW-mV-Bui">
-                                        <rect key="frame" x="0.0" y="62" width="375" height="292"/>
+                                        <rect key="frame" x="0.0" y="62" width="375" height="243"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="70" id="GXs-ry-xrZ" customClass="ChatCell" customModule="OtterRadio" customModuleProvider="target">
@@ -172,24 +175,25 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ys-qh-Pgo">
-                                                            <rect key="frame" x="8" y="8" width="71" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="8" y="8" width="91" height="19.5"/>
+                                                            <fontDescription key="fontDescription" name="Georgia-BoldItalic" family="Georgia" pointSize="17"/>
+                                                            <color key="textColor" red="1" green="0.8666666666666667" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWd-60-Cyu">
-                                                            <rect key="frame" x="8" y="34" width="65.5" height="19.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="8" y="35.5" width="69.5" height="20"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
+                                                            <color key="textColor" red="0.0" green="0.16862745098039217" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwF-qO-9L7">
-                                                            <rect key="frame" x="340" y="0.0" width="27" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="333.5" y="0.0" width="33.5" height="22.5"/>
+                                                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                                                            <color key="textColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.48627450980392156" green="0.77254901960784317" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="HwF-qO-9L7" firstAttribute="centerY" secondItem="2Ys-qh-Pgo" secondAttribute="centerY" constant="-6.5" id="2ui-Aa-BiM"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="DWd-60-Cyu" secondAttribute="bottom" constant="8" id="H3s-C2-OUZ"/>
@@ -212,18 +216,18 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.16862745098039217" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="KdW-mV-Bui" secondAttribute="bottom" id="1dm-mx-hAj"/>
-                                    <constraint firstAttribute="trailing" secondItem="TPG-n4-mjR" secondAttribute="trailing" constant="16" id="5Yq-XU-38p"/>
+                                    <constraint firstAttribute="trailing" secondItem="TPG-n4-mjR" secondAttribute="trailing" constant="15" id="5Yq-XU-38p"/>
                                     <constraint firstItem="m73-Lc-fXb" firstAttribute="leading" secondItem="FaI-HZ-u0o" secondAttribute="leading" constant="8" id="HDa-zO-5TR"/>
                                     <constraint firstItem="NFN-VG-TdG" firstAttribute="leading" secondItem="FaI-HZ-u0o" secondAttribute="leading" constant="178" id="HUi-mS-6Kr"/>
                                     <constraint firstItem="NFN-VG-TdG" firstAttribute="top" secondItem="FaI-HZ-u0o" secondAttribute="top" constant="4" id="NMW-1m-55P"/>
                                     <constraint firstAttribute="trailing" secondItem="m73-Lc-fXb" secondAttribute="trailing" constant="62" id="RBm-yY-SrZ"/>
                                     <constraint firstItem="KdW-mV-Bui" firstAttribute="leading" secondItem="FaI-HZ-u0o" secondAttribute="leading" id="W01-Bd-P8i"/>
                                     <constraint firstItem="m73-Lc-fXb" firstAttribute="top" secondItem="NFN-VG-TdG" secondAttribute="bottom" id="XfN-p3-Ors"/>
-                                    <constraint firstItem="TPG-n4-mjR" firstAttribute="top" secondItem="FaI-HZ-u0o" secondAttribute="top" constant="24" id="Zas-oh-oJ1"/>
+                                    <constraint firstItem="TPG-n4-mjR" firstAttribute="top" secondItem="FaI-HZ-u0o" secondAttribute="top" constant="23" id="Zas-oh-oJ1"/>
                                     <constraint firstItem="m73-Lc-fXb" firstAttribute="top" secondItem="FaI-HZ-u0o" secondAttribute="top" constant="24" id="ahj-v4-4kC"/>
                                     <constraint firstAttribute="trailing" secondItem="NFN-VG-TdG" secondAttribute="trailing" constant="178" id="azn-dv-HC7"/>
                                     <constraint firstItem="KdW-mV-Bui" firstAttribute="top" secondItem="m73-Lc-fXb" secondAttribute="bottom" constant="8" id="hEY-yA-eDn"/>
@@ -247,7 +251,7 @@
                                     <constraint firstAttribute="width" constant="147" id="019-a6-lN0"/>
                                     <constraint firstAttribute="height" constant="134" id="Z0l-zr-ZAN"/>
                                 </constraints>
-                                <state key="normal" image="play"/>
+                                <state key="normal" image="Play_Button"/>
                                 <connections>
                                     <action selector="didTapPlayButton:" destination="59a-Eg-x9q" eventType="touchUpInside" id="R1W-J0-Yev"/>
                                 </connections>
@@ -851,16 +855,17 @@
     </scenes>
     <resources>
         <image name="Otter_Icon" width="3000" height="3000"/>
+        <image name="Play_Button" width="846" height="898"/>
+        <image name="Title" width="2286" height="839"/>
         <image name="down_arrow" width="20" height="14"/>
         <image name="headphones (4)" width="32" height="32"/>
         <image name="live-chat" width="32" height="32"/>
         <image name="music-player" width="32" height="32"/>
         <image name="otterFace" width="2286" height="1226"/>
         <image name="otterRadioLogo" width="394" height="421"/>
-        <image name="play" width="136" height="137"/>
         <image name="video-camera" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yta-0E-GBP"/>
+        <segue reference="qP0-77-3GR"/>
     </inferredMetricsTieBreakers>
 </document>
