@@ -234,6 +234,7 @@ class AdminViewController: UIViewController, UITableViewDataSource, UISearchBarD
     
     func layout(){
         logoutButton.titleLabel?.font = UIFont.myItalicSystemFont(ofSize: 15)
+        
     }
     
 }
