@@ -20,6 +20,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     @IBOutlet weak var downArrowImgView: UIImageView!
     
     @IBOutlet weak var logoImg: UIImageView!
+   
+    @IBOutlet weak var otterImageView: UIImageView!
+    
+    
     var logoImgCenter: CGPoint!
     var logoDownOffset: CGFloat!
     var logoUp: CGPoint!
@@ -89,9 +93,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
     func checkUser() {
         if PFUser.current() == nil{
             trayView.isHidden = true
+            otterImageView.isHidden = false
+            
             var viewControllers = tabBarController?.viewControllers
             viewControllers?.remove(at: 2)
             tabBarController?.viewControllers = viewControllers
+        }
+        else{
+            otterImageView.isHidden = true
+            
         }
     }
     
@@ -125,10 +135,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UIScrollViewD
         if !(otterRadio.isPlaying!)
         {
             otterRadio.playRadio()
-            playButton.setImage(UIImage(named: "pause.png"), for: UIControlState.normal)
+            playButton.setImage(UIImage(named: "Pause_Button.png"), for: UIControlState.normal)
         } else {
             otterRadio.stopRadio()
-            playButton.setImage(UIImage(named: "play.png"), for: UIControlState.normal)
+            playButton.setImage(UIImage(named: "Play_Button.png"), for: UIControlState.normal)
         }
     }
     

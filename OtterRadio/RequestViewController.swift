@@ -24,7 +24,11 @@ class RequestViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         shoutOut.delegate = self
         shoutOut.isEditable = true
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
+        
+        artistName.attributedPlaceholder = NSAttributedString(string: "Enter the artist name", attributes: [NSForegroundColorAttributeName: AppColor.GoldenYellow.color])
+        
+        songTitle.attributedPlaceholder = NSAttributedString(string: "Enter the name of the song", attributes: [NSForegroundColorAttributeName: AppColor.GoldenYellow.color])
     }
 
     override func didReceiveMemoryWarning() {
