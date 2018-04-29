@@ -48,6 +48,13 @@ class MusicCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+    }
+    
+    override func layoutSubviews() {
+//        artistName.preferredMaxLayoutWidth = artistName.frame.size.width
+//        songTitle.preferredMaxLayoutWidth = songTitle.frame.size.width
+//        shoutOut.preferredMaxLayoutWidth = shoutOut.frame.size.width
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

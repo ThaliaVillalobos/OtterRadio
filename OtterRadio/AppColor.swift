@@ -15,6 +15,7 @@ enum AppColor: UInt32 {
     case Blue = 0x63decb
     case Beige = 0x238eb2
     case Gray = 0x66c8c7
+    case GoldenYellow = 0xFFDD69
     
     var color: UIColor {
         return UIColor(hex: rawValue)

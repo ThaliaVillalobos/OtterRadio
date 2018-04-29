@@ -24,6 +24,9 @@ class DisplayMusicViewController: UIViewController, UITableViewDataSource, UIScr
         musicTableView.dataSource = self
         musicTableView.delegate = self
         
+        musicTableView.rowHeight = UITableViewAutomaticDimension
+        musicTableView.estimatedRowHeight = 140
+        
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(DisplayMusicViewController.didPullToRefresh(_:)), for: .valueChanged)
         musicTableView.insertSubview(refreshControl, at: 0)
@@ -40,6 +43,7 @@ class DisplayMusicViewController: UIViewController, UITableViewDataSource, UIScr
         var insets = musicTableView.contentInset
         insets.bottom += InfiniteScrollActivityView.defaultHeight
         musicTableView.contentInset = insets
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +58,7 @@ class DisplayMusicViewController: UIViewController, UITableViewDataSource, UIScr
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = musicTableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as! MusicCell
         cell.song = music[indexPath.row]
+        cell.layoutIfNeeded()
         return cell
     }
     
