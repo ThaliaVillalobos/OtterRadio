@@ -13,9 +13,10 @@ class LiveViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var liveFeedWebView: UIWebView!
    
-    
-    let liveFeedURL = "http://qt.csumb.edu:1935/live/encoder3.sdp/playlist.m3u8"
+    // Auto Load Link
+   // let liveFeedURL = "http://qt.csumb.edu:1935/live/encoder3.sdp/playlist.m3u8"
 
+    let liveFeedURL = "http://media.csumb.edu/www/player/encoder.php?en=3&f=1"
     var streamOnce: Bool?
     
     override func viewDidLoad(){
